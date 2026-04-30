@@ -1,35 +1,16 @@
 import { useLoaderData } from "react-router";
 import ProductItem from "../components/ProductItem";
-import { useState, useMemo } from "react";
-import Fuse from "fuse.js";
-// import "./Products.css";
+import { useState } from "react";
+import { useFuseSearch } from "../hooks/useFuseSearch";
 
 const Products = () => {
   // useLoaderData returnerar data av samma typ som loader-funktionen returnerar
   const products = useLoaderData();
   const [searchItem, setSearchItem] = useState("");
 
-	const fuse = useMemo(() => {
-		return new Fuse(products, { keys: ["name"], threshold: 0.4 });
-	}, [products]);
 
 
-  const matchingProducts = useMemo(() => {
-    if (!searchItem) {
-      return products;
-    }
-    const results = fuse.search(searchItem);
-
-    return results.map((result) => result.item);
-  }, [searchItem, fuse, products]);
-
-
-
-
-
-
-
-
+const matchingProducts = useFuseSearch(products, searchItem, ["name", "category"]);
 
 
   return (
@@ -45,7 +26,8 @@ const Products = () => {
         🔍
       </div>
 
-      <div className="product-list">
+		  <div className="product-list">
+
         {searchItem && matchingProducts.length === 0 && <p>No matches found</p>}
 
         {matchingProducts.map((i) => (
