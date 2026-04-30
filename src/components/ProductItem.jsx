@@ -4,7 +4,7 @@ const ProductItem = ({ item }) => (
   <div className="product-item card">
     <p>{item.name}</p>
     <p>{item.price} kr</p>
-    <Link to={"/products/" + item.id}> Läs mer... </Link>
+    <Link to={"/products/" + item.id}> Read more... </Link>
   </div>
 );
 

@@ -4,35 +4,35 @@ const products = [
 	  "name": "Giant Pizza Float",
 	  "price": 299,
 	  "category": "custom",
-	  "image": "https://source.unsplash.com/featured/?pizza,float"
+	  "image": " "
 	},
 	{
 	  "id": "2",
 	  "name": "Unicorn Float",
 	  "price": 349,
 	  "category": "custom",
-	  "image": "https://source.unsplash.com/featured/?unicorn,float"
+	  "image": " "
 	},
 	{
 	  "id": "3",
 	  "name": "Crocodile Float",
 	  "price": 279,
 	  "category": "custom",
-	  "image": "https://source.unsplash.com/featured/?crocodile,float"
+	  "image": " "
 	},
 	{
 	  "id": "4",
 	  "name": "Donut Float",
 	  "price": 199,
 	  "category": "custom",
-	  "image": "https://source.unsplash.com/featured/?donut,float"
+	  "image": " "
 	},
 	{
 	  "id": "5",
 	  "name": "Pink Flamingo Float",
 	  "price": 329,
 	  "category": "custom",
-	  "image": "https://source.unsplash.com/featured/?flamingo,float"
+	  "image": " "
 	},
 
 	{
@@ -40,35 +40,35 @@ const products = [
 	  "name": "Crown Pool Float",
 	  "price": 259,
 	  "category": "pool",
-	  "image": "https://source.unsplash.com/featured/?crown,pool,float"
+	  "image": " "
 	},
 	{
 	  "id": "7",
 	  "name": "Cabriolet Pool Float",
 	  "price": 399,
 	  "category": "pool",
-	  "image": "https://source.unsplash.com/featured/?car,float,pool"
+	  "image": " "
 	},
 	{
 	  "id": "8",
 	  "name": "Dinosaur Pool Float",
 	  "price": 289,
 	  "category": "pool",
-	  "image": "https://source.unsplash.com/featured/?dinosaur,float"
+	  "image": " "
 	},
 	{
 	  "id": "9",
 	  "name": "Watermelon Pool Float",
 	  "price": 219,
 	  "category": "pool",
-	  "image": "https://source.unsplash.com/featured/?watermelon,float"
+	  "image": " "
 	},
 	{
 	  "id": "10",
 	  "name": "Strawberry Pool Float",
 	  "price": 229,
 	  "category": "pool",
-	  "image": "https://source.unsplash.com/featured/?strawberry,float"
+	  "image": " "
 	},
 
 	{
@@ -76,35 +76,35 @@ const products = [
 	  "name": "Sunny Mattress Float",
 	  "price": 199,
 	  "category": "mattress",
-	  "image": "https://source.unsplash.com/featured/?sun,float"
+	  "image": " "
 	},
 	{
 	  "id": "12",
 	  "name": "Cactus Mattress Float",
 	  "price": 189,
 	  "category": "mattress",
-	  "image": "https://source.unsplash.com/featured/?cactus,float"
+	  "image": " "
 	},
 	{
 	  "id": "13",
 	  "name": "Pineapple Mattress Float",
 	  "price": 209,
 	  "category": "mattress",
-	  "image": "https://source.unsplash.com/featured/?pineapple,float"
+	  "image": " "
 	},
 	{
 	  "id": "14",
 	  "name": "Deluxe Mattress Float",
 	  "price": 249,
 	  "category": "mattress",
-	  "image": "https://source.unsplash.com/featured/?luxury,float"
+	  "image": " "
 	},
 	{
 	  "id": "15",
 	  "name": "Pinky Mattress Float",
 	  "price": 179,
 	  "category": "mattress",
-	  "image": "https://source.unsplash.com/featured/?pink,float"
+	  "image": " "
 	},
 
 	{
@@ -112,36 +112,36 @@ const products = [
 	  "name": "Rainbow Arm Floats",
 	  "price": 99,
 	  "category": "arm",
-	  "image": "https://source.unsplash.com/featured/?rainbow,float"
+	  "image": " "
 	},
 	{
 	  "id": "17",
 	  "name": "Donut Arm Floats",
 	  "price": 89,
 	  "category": "arm",
-	  "image": "https://source.unsplash.com/featured/?donut,arm,float"
+	  "image": " "
 	},
 	{
 	  "id": "18",
 	  "name": "Strawberry Arm Floats",
 	  "price": 95,
 	  "category": "arm",
-	  "image": "https://source.unsplash.com/featured/?strawberry,arm,float"
+	  "image": " "
 	},
 	{
 	  "id": "19",
 	  "name": "Princess Arm Floats",
 	  "price": 109,
 	  "category": "arm",
-	  "image": "https://source.unsplash.com/featured/?princess,float"
+	  "image": " "
 	},
 	{
 	  "id": "20",
 	  "name": "Cherry Arm Floats",
 	  "price": 85,
 	  "category": "arm",
-	  "image": "https://source.unsplash.com/featured/?cherry,float"
+	  "image": " "
 	}
 ]
 
-export default products 
+export default products
