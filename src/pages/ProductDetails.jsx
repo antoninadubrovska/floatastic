@@ -1,6 +1,6 @@
 import { useParams, useLoaderData, useNavigate, Link } from "react-router";
 // import { useState } from "react";
-// import "./ProductDetails.css";
+// import "./../styles/productCard.css";
 
 const ProductDetails = () => {
 	const { id } = useParams();
@@ -22,14 +22,14 @@ const goBack = event => {
 }
 
 return (
-  <div className="product-details product-card">
-    <h2>{item.name}</h2>
-    <p className="product-card-price">{item.price.toFixed(2)} kr.</p>
-    <p className="product-card-description">{item.description}</p>
-    <a href="/products" onClick={goBack}>
-      Go Back
-    </a>
-  </div>
+	<div className="product-details product-card">
+		<h2 className="product-card-name">{item.name}</h2>
+		<p className="product-card-price">{item.price} kr</p>
+		<p className="product-card-description">{item.description}</p>
+		<a className="link-go-back" href="/products" onClick={goBack}>
+			Go Back
+		</a>
+	</div>
 );
 }
 

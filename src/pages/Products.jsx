@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router";
 import ProductItem from "../components/ProductItem";
 import { useState } from "react";
 import { useFuseSearch } from "../hooks/useFuseSearch";
+// import './../styles/products.css'
 
 const Products = () => {
   // useLoaderData returnerar data av samma typ som loader-funktionen returnerar
@@ -26,7 +27,7 @@ const matchingProducts = useFuseSearch(products, searchItem, ["name", "category"
         🔍
       </div>
 
-		  <div className="product-list">
+		  <div className="products-list">
 
         {searchItem && matchingProducts.length === 0 && <p>No matches found</p>}
 

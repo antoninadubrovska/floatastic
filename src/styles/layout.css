@@ -1,12 +1,12 @@
 
 
-/* Reset basics */
+
 html, body, #root {
   height: 100%;
   margin: 0;
 }
 
-/* App layout */
+
 .app {
   min-height: 100%;
   display: flex;
@@ -16,25 +16,25 @@ html, body, #root {
 /* Main content grows */
 main {
   flex: 1;
-  padding: 1rem;
+  padding: 1em;
 }
 
 
 header {
-	background: #222;
-	color: white;
-	padding: 1rem;
+	background: var(--bg-soft);
+	color: var(--text-h);
+	padding: 1em;
   }
 
   header nav {
 	display: flex;
-	gap: 1rem;
+	gap: 1em;
   }
 
   footer {
-	background: #222;
-	color: white;
-	padding: 1rem;
+	background: var(--bg-soft);
+	color: var(--text-h);
+	padding: 1em;
 	text-align: center;
   }
 
@@ -44,7 +44,12 @@ header {
   }
 
   a.active {
-	text-decoration: underline;
+	color: var(--accent-secondary);
+
+  }
+
+  a:hover {
+	color: var(--accent-secondary-hover);
   }
 
 

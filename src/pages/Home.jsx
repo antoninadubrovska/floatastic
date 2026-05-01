@@ -1,9 +1,9 @@
 const Home = () => {
   return (
-    <div>
-      <h2> Home page! </h2>
-      <p> hero info </p>
-    </div>
+		<div>
+			<h2> Float Into Fun! </h2>
+			<p> Discover bold, funny inflatables made for sunny days. </p>
+		</div>
   );
 };
 
