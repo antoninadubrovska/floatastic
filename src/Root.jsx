@@ -1,31 +1,22 @@
-import { Outlet, NavLink } from "react-router";
+import { Outlet } from "react-router";
 // import "./Root.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import "./layout.css";
 
 function Root() {
-  return (
-    <div className="app">
-      <header>
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/products">Products</NavLink>
-        </nav>
-      </header>
+	return (
+		<div className="app">
+			<Header />
 
-      <main>
-        <Outlet />
-      </main>
+			<main>
+				<Outlet />
+			</main>
 
-      <footer>
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          {/* <NavLink to="/about">About</NavLink>
-          <NavLink to="/products">Products</NavLink> */}
-        </nav>
-        <p>Copyright 2026</p>
-      </footer>
-    </div>
-  );
+			<Footer />
+			{/* {location.pathname !== "/cart" && <Footer />} */}
+		</div>
+	);
 }
 
 export default Root;
