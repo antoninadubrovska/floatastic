@@ -1,0 +1,20 @@
+footer {
+	background: var(--bg-dark);
+	color: var(--text-inverted);
+	padding: 1em;
+	text-align: center;
+}
+
+.copyright {
+	font-size: 0.8rem;
+	padding-top: 0.5em;
+	color: var(--text-inverted-secondary);
+}
+
+footer nav {
+	display: flex;
+	gap: 1em;
+	justify-content: center;
+}
+
+/* footer nav a {} */

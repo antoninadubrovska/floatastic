@@ -8,7 +8,7 @@ export default function Footer() {
 				{/* <NavLink to="/about">About</NavLink>
           <NavLink to="/products">Products</NavLink> */}
 			</nav>
-			<p>Copyright 2026</p>
+			<p className="copyright">Copyright 2026</p>
 		</footer>
 	);
 }

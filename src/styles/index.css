@@ -2,17 +2,24 @@
 @import './products.css';
 @import './product-card.css';
 @import './layout.css';
+@import './footer.css';
+@import './header.css';
+
 
 
 
 
 :root {
 
-		--text: #374151;
-		--text-h: #111827;
+		--text: #1F2937;
+		--text-h: #0D1127;
+		--text-muted: #6B7280;
+		--text-inverted: #FFFFFF;
 
 		--bg: #FFFFFF;
 		--bg-soft: #F3F4F6;
+		--bg-dark: #0D1127;
+		--bg-colored: #22D3EE;
 
 
 		--border: #E5E7EB;
@@ -25,8 +32,8 @@
 		--accent-primary: #22D3EE;
 		--accent-primary-hover: #06B6D4;
 
-		--accent-secondary: #F59E0B;
-		--accent-secondary-hover: #D97706;
+		--accent-secondary: #EA7E04;
+		--accent-secondary-hover: #e18317;
 
 
 		--accent-bg: rgba(34, 211, 238, 0.1);
@@ -59,7 +66,7 @@
 
 
 
-/* 
+/*
 @media (prefers-color-scheme: dark) {
   :root {
 
@@ -152,7 +159,7 @@ h1,
 h2 {
   font-family: var(--heading);
   font-weight: 500;
-  color: var(--text-h);
+  /* color: var(--text-h); */
 }
 
 h1 {

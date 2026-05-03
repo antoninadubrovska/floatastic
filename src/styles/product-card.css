@@ -9,6 +9,7 @@
 	box-shadow: var(--shadow);
 	background: var(--bg-soft);
 
+
 	.product-card-name {
 		font-size: 1.2rem;
 		font-weight: bold;
@@ -18,6 +19,7 @@
 	.product-card-price {
 		font-size: 1em;
 		margin-top: 0.5em;
+		color: var(--text)
 	}
 
 	.product-card-description {
@@ -26,11 +28,10 @@
 
 	.link-go-back {
 		font-size: 0.9rem;
-		color: var(--text);
+		color: var(--accent-primary);
 		opacity: 0.8;
 		margin-top: 0.6em;
 
-		color: var(--accent-primary);
 
 		&:hover {
 			color: var(--accent-primary-hover);

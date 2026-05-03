@@ -20,23 +20,8 @@ main {
 }
 
 
-header {
-	background: var(--bg-soft);
-	color: var(--text-h);
-	padding: 1em;
-  }
 
-  header nav {
-	display: flex;
-	gap: 1em;
-  }
 
-  footer {
-	background: var(--bg-soft);
-	color: var(--text-h);
-	padding: 1em;
-	text-align: center;
-  }
 
   a {
 	color: inherit;
