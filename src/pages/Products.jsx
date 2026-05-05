@@ -15,16 +15,16 @@ const matchingProducts = useFuseSearch(products, searchItem, ["name", "category"
 
 
   return (
-    <div className="all-products">
-      <h2> The floats: </h2>
+    <div className="products-page">
+      <h2 className="products-h"> The floats: </h2>
 
       <div className="search">
         <input
-          type="text"
+          type="text" placeholder="Search for a float..."
           value={searchItem}
           onChange={(e) => setSearchItem(e.target.value)}
         />{" "}
-        🔍
+        {/* 🔍 */}
       </div>
 
 		  <div className="products-list">
