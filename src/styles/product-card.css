@@ -8,12 +8,22 @@
 	border-radius: 8px;
 	box-shadow: var(--shadow);
 	background: var(--bg-soft);
+	max-width: 600px;
+	margin: 1em auto;
 
+	.product-card-image {
+		max-width: 400px;
+		width: 100%;
+		height: auto;
+		border-radius: 4px;
+		object-fit: cover;
+	}
 
 	.product-card-name {
 		font-size: 1.2rem;
 		font-weight: bold;
 		color: var(--accent-secondary);
+		margin-top: 0.8em;
 	}
 
 	.product-card-price {
@@ -52,6 +62,10 @@
 		font-size: 1.1rem;
 		font-weight: bold;
 		color: var(--text-h);
+
+		&:hover {
+			color: var(--accent-secondary);
+		}
 	}
 
 
