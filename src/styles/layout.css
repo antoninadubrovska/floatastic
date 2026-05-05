@@ -4,6 +4,7 @@
 html, body, #root {
   height: 100%;
   margin: 0;
+
 }
 
 
@@ -11,12 +12,14 @@ html, body, #root {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+
 }
 
 /* Main content grows */
 main {
   flex: 1;
-  padding: 1em;
+  /* padding: 1em; */
+  background: var(--bg-colored-warm-light);
 }
 
 

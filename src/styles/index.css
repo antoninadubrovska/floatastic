@@ -4,6 +4,7 @@
 @import './layout.css';
 @import './footer.css';
 @import './header.css';
+@import './home.css';
 
 
 
@@ -19,7 +20,8 @@
 		--bg: #FFFFFF;
 		--bg-soft: #F3F4F6;
 		--bg-dark: #0D1127;
-		--bg-colored: #22D3EE;
+		--bg-colored-cold-light: rgb(32, 211, 238, 0.2);
+		--bg-colored-warm-light: rgb(236, 128, 4, 0.2);
 
 
 		--border: #E5E7EB;
