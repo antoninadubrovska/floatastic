@@ -4,6 +4,7 @@ import './styles/index.css'
 import { RouterProvider, createHashRouter } from "react-router";
 import { routes } from "./routing/routing";
 import './styles/index.css';
+//import './data/tempMoveDataToFirebase'
 
 const router = createHashRouter(routes);
 
