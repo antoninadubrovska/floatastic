@@ -6,18 +6,75 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	position: relative;
+
 }
 
+.nav-panel a {
+	/* font-size: 1.2rem; */
+	font-weight: 500;
+	color: var(--text-h);
+	/* text-decoration: none; */
+}
+
+/* .nav-panel a:hover {
+	opacity: 0.7;
+} */
+
+
+/* hamburger menu */
 .menu-btn {
 	display: none;
-	font-size: 1.5em;
+	/* font-size: 1.5em; */
+	width: 30px;
+	height: 22px;
+	position: relative;
 	background: none;
 	border: none;
+	cursor: pointer;
 }
+
+/* lines */
+.menu-btn span {
+	position: absolute;
+	width: 100%;
+	height: 3px;
+	background: var(--text-h);
+	left: 0;
+	transition: all 0.3s ease;
+}
+
+/* each line position */
+.menu-btn span:nth-child(1) {
+	top: 0;
+}
+
+.menu-btn span:nth-child(2) {
+	top: 9px;
+}
+
+.menu-btn span:nth-child(3) {
+	top: 18px;
+}
+
+/* each line animation - menu turns into X */
+.menu-btn.open span:nth-child(1) {
+	transform: rotate(45deg);
+	top: 9px;
+}
+
+.menu-btn.open span:nth-child(2) {
+	opacity: 0;
+}
+
+.menu-btn.open span:nth-child(3) {
+	transform: rotate(-45deg);
+	top: 9px;
+}
+
 
 header nav {
 	display: flex;
-	gap: 0.8em;
+	gap: 1em;
 	/* flex-direction: column; */
 	/* padding-bottom: 0.2em; */
 }
@@ -28,24 +85,91 @@ header nav {
 		display: block;
 	}
 
+	/* overlay */
 	header nav {
-		position: absolute;
+		/* position: absolute;
 		top: 100%;
 		left: 0;
 		width: 100%;
 		background: var(--bg-soft);
 		flex-direction: column;
-		display: none;
-		padding: 2em 0;
-		/* opacity: 0.85; */
+
+
+
+		max-height: 0;
+		overflow: hidden;
+		opacity: 0;
+		transform: translateY(-10px);
+
+		transition:
+			max-height 0.3s ease,
+			opacity 0.25s ease,
+			transform 0.25s ease;
+
+		padding: 0 1em; */
+
+		position: fixed;
+		inset: 0; /* full screen */
+
+		display: flex;
+		justify-content: flex-end; /* push panel right */
+
+		/* glass background */
+		background: rgba(0, 0, 0, 0.2);
+		backdrop-filter: blur(2px);
+
+		opacity: 0;
+		pointer-events: none;
+
+		transition: opacity 0.3s ease;
 	}
 
 	header nav.open {
-		display: flex;
-		flex-direction: column;
-		/* align-items:last baseline; */
-		/* margin-right: 10em; */
+
+		/* max-height: 300px;
+		opacity: 1;
+		transform: translateY(0);
+		padding: 1em; */
+		opacity: 1;
+		pointer-events: auto;
 
 	}
+
+	.nav-panel {
+		width: 70%;
+		max-width: 280px;
+		height: 100%;
+
+		/* glass effect */
+		background: rgba(255, 255, 255, 0.75);
+		backdrop-filter: blur(10px);
+
+		display: flex;
+		flex-direction: column;
+		gap: 1.5em;
+		padding: 2em 1.5em;
+
+		/* slide-in animation */
+		transform: translateX(100%);
+		transition: transform 0.3s ease;
+	}
+
+	header nav.open .nav-panel {
+		transform: translateX(0);
+	}
+
+
+
 }
 
+@media (min-width: 600px){
+	.nav-panel a{
+		padding: 0.6em;
+	}
+
+	/* header{
+		position: fixed;
+	} */
+
+}
+/* TODO: sticky header nav open on mobile */

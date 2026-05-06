@@ -6,11 +6,15 @@ import headerLogo from './../assets/logo-full.svg'
 export default function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+	const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+
+	const closeMenu = () => setIsMenuOpen(false)
+
+
+
 	return (
 		<header>
-			{/* <div>
-			</div> */}
-			<NavLink to="/">
+			<NavLink to="/" onClick={closeMenu}>
 				<img
 					src={headerLogo}
 					alt="Floatastic"
@@ -18,20 +22,36 @@ export default function Header() {
 				/>
 			</NavLink>
 
-			<button className="menu-btn" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-				☰
+			<button
+				className={`menu-btn ${isMenuOpen ? "open" : ""}`}
+				onClick={toggleMenu}
+				aria-label="Toggle menu"
+			>
+				<span></span>
+				<span></span>
+				<span></span>
 			</button>
 
-			<nav className={isMenuOpen ? 'open' : ''}>
-				<NavLink to="/" onClick={() => setIsMenuOpen(false)}>
-					Home
-				</NavLink>
-				<NavLink to="/about" onClick={() => setIsMenuOpen(false)}>
-					About
-				</NavLink>
-				<NavLink to="/products" onClick={() => setIsMenuOpen(false)}>
-					Products
-				</NavLink>
+			<nav
+				className={isMenuOpen ? "open" : ""}
+				//  mobile menu panel when clicked outside it:
+				onClick={closeMenu}
+			>
+				<div
+					className="nav-panel"
+					// mobile menu panel when clicked inside it:
+					onClick={(e) => e.stopPropagation()}
+				>
+					<NavLink to="/" onClick={closeMenu}>
+						Home
+					</NavLink>
+					<NavLink to="/about" onClick={closeMenu}>
+						About
+					</NavLink>
+					<NavLink to="/products" onClick={closeMenu}>
+						Products
+					</NavLink>
+				</div>
 			</nav>
 		</header>
 	);

@@ -12,3 +12,5 @@ export default function Footer() {
 		</footer>
 	);
 }
+
+// TODO: footer contacts, nav links, social media icons etc.

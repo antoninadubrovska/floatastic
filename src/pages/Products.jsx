@@ -16,7 +16,7 @@ const matchingProducts = useFuseSearch(products, searchItem, ["name", "category"
 
   return (
     <div className="products-page">
-      <h2 className="products-h"> The floats: </h2>
+      <h2 className="products-h"> The floats </h2>
 
       <div className="search">
         <input
