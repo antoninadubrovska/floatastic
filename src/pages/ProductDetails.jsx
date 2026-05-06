@@ -1,58 +1,58 @@
-import { useParams, useLoaderData, useNavigate, Link } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { getImageUrl } from "../utils/getImageUrl";
+import { useProductsStore } from "../store/useProductsStore";
 
 const ProductDetails = () => {
 	const { id } = useParams();
-	const product = useLoaderData();
+	//const product = useLoaderData();
 	const navigate = useNavigate();
-	const item = product.find((i) => i.id === id);
-	console.log("imagePath:", item?.image);
+
+	const { products, fetchProducts } = useProductsStore();
+
+	//console.log("imagePath:", item?.image);
 
 	const [imageUrl, setImageUrl] = useState(null);
 
 	useEffect(() => {
+		fetchProducts();
+	}, []);
 
+	// find item after it exists
+	const item = products.find((i) => i.id === id);
+
+	useEffect(() => {
 		//to prevent unnecessary Firebase call
 		if (!item?.image) return;
 
 		getImageUrl(item.image)
-			//.then(setImageUrl)
-			.then((url) => {
-				console.log("Successfully fetched download URL:", url);
-				setImageUrl(url);
-			})
-			//.catch(console.error);
-			.catch((error) => {
-				console.error("Error fetching download URL:", error);
-			});
-
+			.then(setImageUrl);
 
 	}, [item?.image]);
 
+	// loading guard
 	if (!item) {
-		console.log("Couldn't find. ", id, product);
-		console.log("id: ", typeof id);
-		console.log("id2: ", product[2].id);
-		return <div className="details"> Could not find the product. </div>;
+		return <div className="details"> Loading product...</div>;
 	}
-
-	const goBack = (event) => {
-		event.preventDefault();
-		navigate(-1);
-	};
 
 	return (
 		<div className="product-details product-card">
 			<img
 				className="product-card-image"
-				src={imageUrl || item?.image}
+				src={imageUrl || item.image}
 				alt={item.name}
 			/>
 			<h2 className="product-card-name">{item.name}</h2>
 			<p className="product-card-price">{item.price} kr</p>
 			<p className="product-card-description">{item.description}</p>
-			<a className="link-go-back" href="/products" onClick={goBack}>
+			<a
+				className="link-go-back"
+				href="/products"
+				onClick={(e) => {
+					e.preventDefault();
+					navigate(-1);
+				}}
+			>
 				Go Back
 			</a>
 		</div>

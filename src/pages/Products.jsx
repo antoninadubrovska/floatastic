@@ -1,42 +1,59 @@
-import { useLoaderData } from "react-router";
+//import { useLoaderData } from "react-router";
 import ProductItem from "../components/ProductItem";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFuseSearch } from "../hooks/useFuseSearch";
-// import './../styles/products.css'
+import { useProductsStore } from "../store/useProductsStore";
 
 const Products = () => {
-  // useLoaderData returnerar data av samma typ som loader-funktionen returnerar
-  const products = useLoaderData();
-  const [searchItem, setSearchItem] = useState("");
+	// useLoaderData returnerar data av samma typ som loader-funktionen returnerar
+	//const products = useLoaderData();
 
+	const { products, loading, fetchProducts } = useProductsStore();
+	const [searchItem, setSearchItem] = useState("");
 
+	// fetch from db when it loads
 
-const matchingProducts = useFuseSearch(products, searchItem, ["name", "category"]);
+	// ?
+	useEffect(() => {
+		fetchProducts();
+	}, [fetchProducts]);
 
+	const matchingProducts = useFuseSearch(products, searchItem, [
+		"name",
+		"category",
+	]);
 
-  return (
-    <div className="products-page">
-      <h2 className="products-h"> The floats </h2>
+	if (loading && products.length === 0) {
+		return <p>Loading ... </p>;
+	}
 
-      <div className="search">
-        <input
-          type="text" placeholder="Search for a float..."
-          value={searchItem}
-          onChange={(e) => setSearchItem(e.target.value)}
-        />{" "}
-        {/* 🔍 */}
-      </div>
+	//if (error) return <p>Something weird happened! </p>;
 
-		  <div className="products-list">
+	// console.log("Products from store:", products);
+	return (
+		<div className="products-page">
+			<h2 className="products-h"> The floats </h2>
 
-        {searchItem && matchingProducts.length === 0 && <p>No matches found</p>}
+			<div className="search">
+				<input
+					type="text"
+					placeholder="Search for a float..."
+					value={searchItem}
+					onChange={(e) => setSearchItem(e.target.value)}
+				/>{" "}
+			</div>
 
-        {matchingProducts.map((i) => (
-          <ProductItem key={i.id} item={i} />
-        ))}
-      </div>
-    </div>
-  );
+			<div className="products-list">
+				{searchItem && matchingProducts.length === 0 && (
+					<p>No results, but don't give up now!</p>
+				)}
+
+				{matchingProducts.map((i) => (
+					<ProductItem key={i.id} item={i} />
+				))}
+			</div>
+		</div>
+	);
 };
 
 export default Products;
