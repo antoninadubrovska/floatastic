@@ -2,11 +2,13 @@ import { useParams, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { getImageUrl } from "../utils/getImageUrl";
 import { useProductsStore } from "../store/useProductsStore";
+import { Link } from "react-router";
+
+import { useCartStore } from "../store/useCartStore";
 
 const ProductDetails = () => {
 	const { id } = useParams();
-	//const product = useLoaderData();
-	const navigate = useNavigate();
+	//const navigate = useNavigate();
 
 	const { products, fetchProducts } = useProductsStore();
 
@@ -14,20 +16,27 @@ const ProductDetails = () => {
 
 	const [imageUrl, setImageUrl] = useState(null);
 
+	// useEffect(() => {
+	// 	fetchProducts();
+	// }, []);
 	useEffect(() => {
-		fetchProducts();
-	}, []);
+		if (products.length === 0) {
+			fetchProducts();
+		}
+	}, [products.length, fetchProducts]);
 
 	// find item after it exists
 	const item = products.find((i) => i.id === id);
+
+	//buy
+	const { addToCart } = useCartStore();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		//to prevent unnecessary Firebase call
 		if (!item?.image) return;
 
-		getImageUrl(item.image)
-			.then(setImageUrl);
-
+		getImageUrl(item.image).then(setImageUrl);
 	}, [item?.image]);
 
 	// loading guard
@@ -45,16 +54,34 @@ const ProductDetails = () => {
 			<h2 className="product-card-name">{item.name}</h2>
 			<p className="product-card-price">{item.price} kr</p>
 			<p className="product-card-description">{item.description}</p>
-			<a
-				className="link-go-back"
-				href="/products"
-				onClick={(e) => {
-					e.preventDefault();
-					navigate(-1);
+
+			{/* buy */}
+			<button
+				onClick={() => {
+					addToCart(item);
+					navigate("/cart");
 				}}
 			>
+				Buy
+			</button>
+			{/* <a
+				className="link-go-back"
+				href="/products"
+				// onClick={(e) => {
+				// 	e.preventDefault();
+				// 	navigate(-1);
+
+				// onClick={(e) => {
+				// 	e.preventDefault();
+				// 	navigate("/products");
+				// }}
+			>
 				Go Back
-			</a>
+			</a> */}
+
+			<Link className="link-go-back" to="/products">
+				Go Back
+			</Link>
 		</div>
 	);
 };

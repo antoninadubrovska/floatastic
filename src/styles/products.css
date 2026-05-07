@@ -38,3 +38,12 @@
 		grid-template-columns: auto auto auto;
 	}
 }
+
+.search-no-results{
+	margin: 2rm;
+}
+
+.loading{
+	margin: 2em;
+}
+

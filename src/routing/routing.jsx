@@ -1,10 +1,10 @@
 import Root from "../Root";
 import Home from "../pages/Home";
-
 import About from "../pages/About";
 import Products from "../pages/Products";
-//import products from "../data/products";
 import ProductDetails from "../pages/ProductDetails";
+import Cart from '../pages/Cart'
+//import { Component } from "react";
 
 export const routes = [
   {
@@ -15,18 +15,17 @@ export const routes = [
 		{ path: '/about', Component: About },
 		{
 			path: '/products',
-			// loader: async () => {
-			// 	return products
-			// },
-			// loader: async () => products,
 			Component: Products
 		},
 
 		{
 			path: '/products/:id',
-			// loader: async () => products,
 			Component: ProductDetails
 		},
+		{
+			path: '/cart',
+			Component: Cart
+		}
      ]
   }
 ];
