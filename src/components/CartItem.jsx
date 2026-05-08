@@ -6,22 +6,25 @@ const CartItem = ({ item }) => {
 
 	return (
 		<div className="cart-item">
-			<h3>{item.name}</h3>
+			<div className="cart-item-name-and-price">
+				<h3 className="cart-item-name">{item.name}</h3>
 
-			<p>{item.price} kr</p>
+				<p className="cart-item-price">{item.price} kr</p>
+			</div>
 
-			<p>Quantity: {item.quantity}</p>
-
-			<div className="cart-buttons">
+			<div className="cart-buttons-and-quantity">
 				<button onClick={() => increaseQuantity(item.id)}>+</button>
 
 				<button onClick={() => decreaseQuantity(item.id)}>-</button>
 
 				<button onClick={() => removeFromCart(item.id)}>Remove</button>
+				<p className="cart-item-quantity"> Qty {item.quantity}</p>
 			</div>
 
 			<p>Subtotal: {item.price * item.quantity} kr</p>
 		</div>
+
+		// TODO: add a line
 	);
 };
 

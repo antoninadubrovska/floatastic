@@ -1,0 +1,8 @@
+.buy-btn{
+	margin: 1em 0;
+	background-color: var(--accent-secondary);
+	border-radius: 8px;
+	border: 0cap;
+	padding: 0.4em 0.8em;
+	color: var(--bg)
+}

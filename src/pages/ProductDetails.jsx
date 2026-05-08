@@ -1,10 +1,10 @@
-import { useParams, useNavigate } from "react-router";
-import { useEffect, useState } from "react";
-import { getImageUrl } from "../utils/getImageUrl";
+import { useParams } from "react-router";
+import { useEffect } from "react";
+//import { getImageUrl } from "../utils/getImageUrl";
 import { useProductsStore } from "../store/useProductsStore";
 import { Link } from "react-router";
-
-import { useCartStore } from "../store/useCartStore";
+import { useBuyNow } from "../hooks/useBuyNow";
+import { useProductImage } from "../hooks/useProductImage";
 
 const ProductDetails = () => {
 	const { id } = useParams();
@@ -12,13 +12,7 @@ const ProductDetails = () => {
 
 	const { products, fetchProducts } = useProductsStore();
 
-	//console.log("imagePath:", item?.image);
 
-	const [imageUrl, setImageUrl] = useState(null);
-
-	// useEffect(() => {
-	// 	fetchProducts();
-	// }, []);
 	useEffect(() => {
 		if (products.length === 0) {
 			fetchProducts();
@@ -29,15 +23,10 @@ const ProductDetails = () => {
 	const item = products.find((i) => i.id === id);
 
 	//buy
-	const { addToCart } = useCartStore();
-	const navigate = useNavigate();
+	const buyNow = useBuyNow()
 
-	useEffect(() => {
-		//to prevent unnecessary Firebase call
-		if (!item?.image) return;
 
-		getImageUrl(item.image).then(setImageUrl);
-	}, [item?.image]);
+	const imageUrl = useProductImage(item?.image);
 
 	// loading guard
 	if (!item) {
@@ -56,28 +45,10 @@ const ProductDetails = () => {
 			<p className="product-card-description">{item.description}</p>
 
 			{/* buy */}
-			<button
-				onClick={() => {
-					addToCart(item);
-					navigate("/cart");
-				}}
-			>
+			<button className="buy-btn" onClick={() => buyNow(item)}>
 				Buy
 			</button>
-			{/* <a
-				className="link-go-back"
-				href="/products"
-				// onClick={(e) => {
-				// 	e.preventDefault();
-				// 	navigate(-1);
 
-				// onClick={(e) => {
-				// 	e.preventDefault();
-				// 	navigate("/products");
-				// }}
-			>
-				Go Back
-			</a> */}
 
 			<Link className="link-go-back" to="/products">
 				Go Back

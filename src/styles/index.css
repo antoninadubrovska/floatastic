@@ -7,6 +7,7 @@
 @import './home.css';
 @import './about.css';
 @import './cart.css';
+@import './buy-button.css';
 
 
 
@@ -37,7 +38,7 @@
 		--accent-primary-hover: #06B6D4;
 
 		--accent-secondary: #EA7E04;
-		--accent-secondary-hover: #e18317;
+		--accent-secondary-hover: #d57304;
 
 
 		--accent-bg: rgba(34, 211, 238, 0.1);
