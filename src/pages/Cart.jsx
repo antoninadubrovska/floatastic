@@ -1,8 +1,9 @@
 import { useCartStore } from "../store/useCartStore";
+import { Link } from "react-router";
+import CartItem from "../components/CartItem";
 
 const Cart = () => {
-	const { cart, removeFromCart, increaseQuantity, decreaseQuantity } =
-		useCartStore();
+	const { cart } = useCartStore();
 
 	const totalPrice = cart.reduce(
 		(total, item) => total + item.price * item.quantity,
@@ -10,35 +11,44 @@ const Cart = () => {
 	);
 
 	return (
-		<div>
+		<div className="cart-page">
 			<h2>Shopping Cart</h2>
 
-			{cart.length === 0 && <p>Your cart is empty</p>}
+			{cart.length === 0 ? (
+				<>
+					<p>Your cart is empty</p>
 
-			{cart.map((item) => (
-				<div key={item.id}>
-					<h3>{item.name}</h3>
+					<Link className="continue-shopping-btn" to="/products">
+						Back to floats
+					</Link>
+				</>
+			) : (
+				<>
+					<div className="cart-items">
+						{cart.map((item) => (
+							<CartItem key={item.id} item={item} />
+						))}
+					</div>
 
-					<p>{item.price} kr</p>
+					<div className="cart-summary">
+						<h3>Total: {totalPrice} kr</h3>
 
-					<p>Quantity: {item.quantity}</p>
+						<div className="cart-actions">
+							<Link
+								className="continue-shopping-btn"
+								to="/products"
+							>
+								Add more floats
+							</Link>
 
-					<button onClick={() => increaseQuantity(item.id)}>+</button>
-
-					<button onClick={() => decreaseQuantity(item.id)}>-</button>
-
-					<button onClick={() => removeFromCart(item.id)}>
-						Remove
-					</button>
-				</div>
-			))}
-
-			<h3>Total: {totalPrice} kr</h3>
+							<button className="pay-btn">Pay</button>
+						</div>
+					</div>
+				</>
+			)}
 		</div>
 	);
 };
 
 export default Cart;
 
-//TODO: buy more
-//TODO: /cart path somewhere else
