@@ -29,11 +29,21 @@
 	.product-card-price {
 		font-size: 1em;
 		margin-top: 0.5em;
-		color: var(--text)
+		color: var(--text);
+		font-weight: 600;
+		margin-top: 0.5em;
 	}
 
-	.product-card-description {
+	.product-card-details-description {
 		font-size: 0.9rem;
+		color: var(--text-h);
+		max-width: 75%;
+		margin-top: 0.4em;
+
+		&:hover{
+			color: var(--accent-primary-hover);
+		}
+
 	}
 
 	.link-go-back {

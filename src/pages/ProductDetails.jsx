@@ -41,14 +41,15 @@ const ProductDetails = () => {
 				alt={item.name}
 			/>
 			<h2 className="product-card-name">{item.name}</h2>
+
+			<p className="product-card-details-description">{item.details}</p>
+
 			<p className="product-card-price">{item.price} kr</p>
-			<p className="product-card-description">{item.description}</p>
 
 			{/* buy */}
 			<button className="buy-btn" onClick={() => buyNow(item)}>
 				Buy
 			</button>
-
 
 			<Link className="link-go-back" to="/products">
 				Go Back
