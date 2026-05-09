@@ -22,8 +22,13 @@
 	.product-card-name {
 		font-size: 1.2rem;
 		font-weight: bold;
-		color: var(--accent-secondary);
+		color: var(--text-h);
 		margin-top: 0.8em;
+
+		&:hover{
+
+			color: var(--accent-secondary-hover);
+		}
 	}
 
 	.product-card-price {
@@ -63,24 +68,35 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap:0.25em;
 	padding: 1rem;
 	border: 1px solid var(--border);
 	border-radius: 8px;
 	box-shadow: var(--shadow);
 	background: var(--bg-soft);
 	.product-card-preview-name {
-		font-size: 1.1rem;
+		font-size: 1rem;
 		font-weight: bold;
 		color: var(--text-h);
+		margin-top: 0.5em;
 
 		&:hover {
-			color: var(--accent-secondary);
+			color: var(--accent-secondary-hover);
 		}
+	}
+
+	.product-card-image-preview{
+		max-width: 120px;
+		width: 100%;
+		height: auto;
+		border-radius: 4px;
+		object-fit: cover;
+
 	}
 
 
 	.product-card-preview-price {
-		font-size: 1.1em;
+		font-size: 0.85em;
 	}
 
 	.link-read-more {
