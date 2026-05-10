@@ -11,15 +11,11 @@ export default function Footer() {
 				<p className="copyright">Copyright 2026</p>
 			</div>
 
-			<div className="footer-section">
+			<div className="footer-section"></div>
 
-			</div>
-
-
-
-
-
-
+			<nav className="footer-section">
+				<NavLink to="/admin">Admin</NavLink>
+			</nav>
 		</footer>
 	);
 }

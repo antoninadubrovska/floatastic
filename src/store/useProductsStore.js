@@ -20,12 +20,14 @@ export const useProductsStore = create((set, get) => ({
     set({ loading: true });
 
 		try {
-	
+
       const snapshot = await getDocs(collection(db, "products"));
 
       const products = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
+
+		  //Firestore ID always wins
+		  ...doc.data(),
+		  id: doc.id,
       }));
 
 		set({
@@ -71,7 +73,7 @@ export const useProductsStore = create((set, get) => ({
 	},
 
 	// update
-	udateProduct: async (id, updatedData) => {
+	updateProduct: async (id, updatedData) => {
 		try {
 			await updateDoc(doc(db, 'products', id), updatedData)
 
@@ -82,7 +84,6 @@ export const useProductsStore = create((set, get) => ({
 			console.error('Error upating product:', error)
 		}
 	},
-
 
 
 

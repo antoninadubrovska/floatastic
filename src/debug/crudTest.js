@@ -16,4 +16,14 @@ export const runCrudTest = async () => {
 	});
 
 	console.log("DONE");
+
+
+
+// const debugProduct = store.products.find(
+// 	(p) => p.name === "Debug Float"
+// );
+
+// if (debugProduct) {
+// 	await store.deleteProduct(debugProduct.id);
+// }
 };

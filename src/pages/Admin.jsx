@@ -1,0 +1,84 @@
+import { useEffect, useState } from "react";
+import { useProductsStore } from "../store/useProductsStore";
+import ProductAdminForm from '../components/PruductAdminForm'
+
+const Admin = () => {
+	const { products, fetchProducts, deleteProduct, addProduct } =
+		useProductsStore();
+
+	const [editingProduct, setEditingProduct] = useState(null);
+
+	useEffect(() => {
+		fetchProducts();
+	}, [fetchProducts]);
+
+	return (
+		<div className="admin-page">
+			<h1>Admin Panel</h1>
+
+			{/* PRODUCT LIST */}
+			<div className="admin-list">
+				{products.map((p) => (
+					<div key={p.id} className="admin-item">
+						<div>
+							<strong>{p.name}</strong>
+							<p>{p.price} kr</p>
+						</div>
+
+						<div className="admin-actions">
+							<button onClick={() => setEditingProduct(p)}>
+								Edit
+							</button>
+
+							<button
+								onClick={() => {
+									const confirmed = window.confirm(
+										"Delete this product?",
+									);
+
+									if (confirmed) {
+										deleteProduct(p.id);
+									}
+								}}
+							>
+								Delete
+							</button>
+						</div>
+					</div>
+				))}
+			</div>
+
+			{/* <button
+				onClick={ async () =>
+					addProduct({
+						id: "9",
+						name: "Watermelon Pool Float",
+						price: 219,
+						category: "pool",
+						image: "products/img9-watermelon-pool.webp",
+						details:
+							"Refreshing watermelon-inspired pool float with lightweight inflatable design perfect for sunny poolside afternoons.",
+						stock: 0,
+						featured: false,
+						rating: 0,
+					})
+				}
+			>
+				Restore Product - rewrite in details
+			</button> */}
+
+			{/* FORM */}
+			<div className="admin-form">
+				<h2>{editingProduct ? "Edit Product" : "Add Product"}</h2>
+
+				<ProductAdminForm
+					editingProduct={editingProduct}
+					setEditingProduct={setEditingProduct}
+				/>
+
+			</div>
+		</div>
+	);
+};
+
+export default Admin;
