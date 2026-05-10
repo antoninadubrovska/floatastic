@@ -16,6 +16,7 @@
 .search {
 	display: flex;
 	justify-content: center;
+	gap:0.6em;
 }
 .search input {
 	padding: 0.5em 1em;
@@ -24,7 +25,38 @@
 	width: 100%;
 	max-width: 260px;
 	box-sizing: border-box;
+
+	&:hover{
+		border: 1px solid var(--accent-primary-hover);
+	}
+	/* &:active{
+		border: 1px solid var(--accent-secondary-hover);
+
+	} */
 }
+
+.sort{
+	padding: 0.5em 1em;
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	width: 100%;
+	max-width: 120px;
+	box-sizing: border-box;
+	&:hover{
+		border: 1px solid var(--accent-primary-hover);
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
 
 .products-list {
 	display: grid;
