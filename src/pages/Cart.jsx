@@ -10,6 +10,7 @@ const Cart = () => {
 		0,
 	);
 
+	//TODO: persist
 	return (
 		<div className="cart-page">
 			<h2>Shopping Cart</h2>

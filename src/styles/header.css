@@ -80,33 +80,13 @@ header nav {
 }
 
 /* MOBILE */
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 	.menu-btn {
 		display: block;
 	}
 
 	/* overlay */
 	header nav {
-		/* position: absolute;
-		top: 100%;
-		left: 0;
-		width: 100%;
-		background: var(--bg-soft);
-		flex-direction: column;
-
-
-
-		max-height: 0;
-		overflow: hidden;
-		opacity: 0;
-		transform: translateY(-10px);
-
-		transition:
-			max-height 0.3s ease,
-			opacity 0.25s ease,
-			transform 0.25s ease;
-
-		padding: 0 1em; */
 
 		position: fixed;
 		inset: 0; /* full screen */

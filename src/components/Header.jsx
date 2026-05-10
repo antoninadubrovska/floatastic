@@ -51,6 +51,9 @@ export default function Header() {
 					<NavLink to="/products" onClick={closeMenu}>
 						Products
 					</NavLink>
+					<NavLink to="/cart" onClick={closeMenu}>
+						Cart
+					</NavLink>
 				</div>
 			</nav>
 		</header>
