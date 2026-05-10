@@ -5,6 +5,8 @@ import { useFuseSearch } from "../hooks/useFuseSearch";
 import { useProductsStore } from "../store/useProductsStore";
 import { useSortedProducts } from "../hooks/useSortedProducts";
 
+//import { runCrudTest } from "../debug/crudTest";
+
 const Products = () => {
 
 	const { products, loading, fetchProducts } = useProductsStore();
@@ -38,6 +40,8 @@ const Products = () => {
 		<div className="products-page">
 			<h2 className="products-h"> The floats </h2>
 
+			{/* <button onClick={runCrudTest}>Run CRUD Test</button> */}
+
 			<div className="search">
 				<input
 					type="text"
@@ -45,8 +49,8 @@ const Products = () => {
 					value={searchItem}
 					onChange={(e) => setSearchItem(e.target.value)}
 				/>{" "}
-
-				<select className="sort"
+				<select
+					className="sort"
 					value={sortOption}
 					onChange={(e) => setSortOption(e.target.value)}
 				>
