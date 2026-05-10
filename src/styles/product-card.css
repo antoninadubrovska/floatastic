@@ -95,7 +95,7 @@
 
 .product-card:hover .product-card-image {
 	/* transform: scale(1.04); */
-	filter: brightness(1.08);
+	filter: brightness(1.06);
 }
 
 

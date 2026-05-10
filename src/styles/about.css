@@ -12,7 +12,7 @@
 
 }
 
-.logo-link {
+/* .logo-link {
 	text-decoration: none;
   }
 
@@ -20,16 +20,43 @@
 	color: var(--text-h);
 	font-weight: 700;
 
-	/* &:hover{
+	&:hover{
 		text-shadow: 0.2px 0.2px 0.8px var(--bg-dark);
-	} */
+	}
   }
 
   .astic {
 	color: var(--accent-primary);
 	font-weight: 700;
 
-	/* &:hover{
+	&:hover{
 		text-shadow: 0.2px 0.2px 0.8px var(--accent-primary);
-	} */
-  }
+	}
+  } */
+
+  .logo-link {
+	text-decoration: none;
+	display: inline-block;
+	transition: text-shadow 0.2s ease;
+	font-size: 1.2em;
+}
+
+.float {
+	color: var(--text-h);
+	font-weight: 700;
+}
+
+.astic {
+	color: var(--accent-primary);
+	font-weight: 700;
+}
+
+/* Hover Float */
+.logo-link:has(.float:hover) {
+	text-shadow: 0.2px 0.2px 0.8px var(--bg-dark);
+}
+
+/* Hover astic */
+.logo-link:has(.astic:hover) {
+	text-shadow: 0.2px 0.2px 0.8px var(--accent-primary);
+}

@@ -24,11 +24,18 @@ const firebaseConfig = {
   projectId: "floatastic-29b68",
 	//storageBucket: "floatastic-29b68.firebasestorage.app",
 	//storageBucket: "floatastic-29b68.appspot.com",
-	storageBucket: "floatastic-29b68.firebasestorage.app", 
+	storageBucket: "floatastic-29b68.firebasestorage.app",
   messagingSenderId: "102431986555",
   appId: "1:102431986555:web:c4daa83be03d3663f2a3de",
   measurementId: "G-VL4L72CKDP"
 };
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+
+
+
+
 
 
 // Initialize Firebase
