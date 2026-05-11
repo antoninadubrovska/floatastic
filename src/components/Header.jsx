@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router'
 import { useState } from 'react'
-import headerLogo from './../assets/logo-full.svg'
-import cartIcon from "./../assets/cart-22D3EE.svg";
+import headerLogo from './../assets/svg/logo-full.svg'
+import cartIcon from "./../assets/svg/cart-22D3EE.svg";
 
 
 export default function Header() {

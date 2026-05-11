@@ -1,20 +1,46 @@
 footer {
 	background: var(--bg-dark);
 	color: var(--text-inverted);
-	padding: 1em;
+	padding: 2em;
 	text-align: center;
-}
-
-.copyright {
-	font-size: 0.8rem;
-	padding-top: 0.5em;
-	color: var(--text-inverted-secondary);
-}
-
-footer nav {
 	display: flex;
-	gap: 1em;
+	gap: 2em;
+	flex-direction: column;
 	justify-content: center;
+	align-items: center;
+
+
+	@media (min-width: 560px){
+		flex-direction: row;
+		justify-content: space-around;
+
+	}
 }
 
-/* footer nav a {} */
+.footer-address-and-follow {
+	display: flex;
+	gap:0.6em;
+	flex-direction: column;
+}
+.follow {
+	display: flex;
+	gap:0.6em;
+	align-self: center;
+
+	.follow-instagram {
+		height: 1em;
+
+	}
+
+	.follow-facebook {
+		height: 1.1em;
+
+	}
+
+	.follow-whathapp {
+		height: 1.1em;
+
+	}
+
+}
+
