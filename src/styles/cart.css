@@ -129,7 +129,11 @@
 	flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
+.cart-actions > * {
+	flex: 1;
+}
+
+@media (max-width: 800px) {
 	.cart-page {
 		padding: 1rem;
 	}
@@ -142,4 +146,11 @@
 	.continue-shopping-btn {
 		width: 100%;
 	} */
+}
+
+@media (min-width:801px){
+	.cart-actions {
+		flex-direction: row;
+	}
+
 }

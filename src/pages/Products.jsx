@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useFuseSearch } from "../hooks/useFuseSearch";
 import { useProductsStore } from "../store/useProductsStore";
 import { useSortedProducts } from "../hooks/useSortedProducts";
+import { useScroll } from "../hooks/useScroll";
 
 //import { runCrudTest } from "../debug/crudTest";
 
@@ -21,6 +22,7 @@ const Products = () => {
 		fetchProducts();
 	}, [fetchProducts]);
 
+	const { scrollToTop } = useScroll();
 
 	//search
 	const matchingProducts = useFuseSearch(products, searchItem, [
@@ -35,6 +37,8 @@ const Products = () => {
 	if (loading && products.length === 0) {
 		return <p className="loading">Loading ... </p>;
 	}
+
+
 
 	return (
 		<div className="products-page">
@@ -74,6 +78,10 @@ const Products = () => {
 					<ProductItem key={i.id} item={i} />
 				))}
 			</div>
+
+			<button className="scrollToTop" onClick={scrollToTop}>
+				Back to top
+			</button>
 		</div>
 	);
 };

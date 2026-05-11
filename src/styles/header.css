@@ -9,6 +9,13 @@ header {
 
 }
 
+/* ............. */
+/* .logo-full-header:hover {
+	box-shadow: 0.2px 0.2px 0.8px var(--accent-primary);
+} */
+
+/* ................... */
+
 .nav-panel a {
 	/* font-size: 1.2rem; */
 	font-weight: 500;
@@ -77,6 +84,19 @@ header nav {
 	gap: 1em;
 	/* flex-direction: column; */
 	/* padding-bottom: 0.2em; */
+}
+
+
+
+.cart-icon{
+	height: 1.1em;
+
+	/* &:hover{
+		box-shadow: 0.2px 0.2px 0.8px var(--accent-primary);
+	} */
+
+
+
 }
 
 /* MOBILE */

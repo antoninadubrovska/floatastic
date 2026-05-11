@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useProductsStore } from "../store/useProductsStore";
-import ProductAdminForm from '../components/PruductAdminForm'
+import ProductAdminForm from "../components/PruductAdminForm";
+import { useScroll } from "../hooks/useScroll";
 
 const Admin = () => {
 	const { products, fetchProducts, deleteProduct, addProduct } =
@@ -12,23 +13,43 @@ const Admin = () => {
 		fetchProducts();
 	}, [fetchProducts]);
 
+	const { formRef, scrollToForm, scrollToTop } = useScroll();
+
 	return (
 		<div className="admin-page">
-			<h1>Admin Panel</h1>
+			<h2>Admin Panel</h2>
 
 			{/* PRODUCT LIST */}
-			<div className="admin-list">
+			<div className="admin-products-list">
 				{products.map((p) => (
-					<div key={p.id} className="admin-item">
+					<div key={p.id} className="admin-product-card">
 						<div>
-							<strong>{p.name}</strong>
-							<p>{p.price} kr</p>
+							<h2 className="admin-product-card-name">
+								{p.name}
+							</h2>
+							<p className="admin-product-card-price">
+								{p.price} kr
+							</p>
 						</div>
 
-						<div className="admin-actions">
-							<button onClick={() => setEditingProduct(p)}>
+						<div className="admin-card-actions">
+							<button
+								onClick={() => {
+									setEditingProduct(p);
+									scrollToForm();
+								}}
+							>
 								Edit
 							</button>
+
+							{/* // If form depends on state rendering first ( so DOM is updated before scrolling. ):
+								// onClick={() => {
+								// 	setEditingProduct(p);
+
+								// 	setTimeout(() => {
+								// 		scrollToForm();
+								// 	}, 0);
+								// }} */}
 
 							<button
 								onClick={() => {
@@ -68,15 +89,16 @@ const Admin = () => {
 			</button> */}
 
 			{/* FORM */}
-			<div className="admin-form">
+			<div ref={formRef} className="admin-form">
 				<h2>{editingProduct ? "Edit Product" : "Add Product"}</h2>
 
 				<ProductAdminForm
 					editingProduct={editingProduct}
 					setEditingProduct={setEditingProduct}
 				/>
-
 			</div>
+
+			<button className="scrollToTop" onClick={scrollToTop}>Back to top</button>
 		</div>
 	);
 };

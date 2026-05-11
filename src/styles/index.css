@@ -7,10 +7,15 @@
 @import './home.css';
 @import './about.css';
 @import './cart.css';
-@import './buy-button.css';
+@import './buttons.css';
+@import './admin.css';
 
 
-
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
 
 
 :root {
