@@ -52,6 +52,10 @@
 		&:hover {
 			color: var(--accent-secondary-hover);
 		}
+
+		/* @media (max-width: 599px){
+
+		} */
 	}
 
 	.product-card-price {

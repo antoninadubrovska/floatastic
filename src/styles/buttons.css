@@ -27,7 +27,7 @@
 
 .scrollToTop{
 	border: none;
-	border-radius: 10px;
+	border-radius: 8px;
 	padding: 0.7rem 1rem;
 	font-size: 0.95rem;
 	font-weight: 500;
@@ -43,6 +43,7 @@
 		background: var(--accent-primary-hover);
 	color: var(--bg);
 	}
+	margin-bottom: 1em;
 }
 
 /* admin form */

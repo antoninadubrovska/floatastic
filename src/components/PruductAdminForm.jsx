@@ -146,7 +146,7 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 
 			{/* false */}
 			<label>
-				Featured Product
+				Featured
 				<input
 					type="checkbox"
 					name="featured"
@@ -163,7 +163,7 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 			<input
 				type="number"
 				name="rating"
-				placeholder="rating"
+				placeholder="Rating"
 				value={formData.rating}
 				onChange={handleChange}
 			/>
