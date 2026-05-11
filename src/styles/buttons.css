@@ -1,13 +1,26 @@
 .buy-btn{
 	margin: 1em 0;
 	background-color: var(--accent-secondary);
-	border-radius: 8px;
 	border: 0cap;
-	padding: 0.4em 0.8em;
+
+	border: none;
+	border-radius: 8px;
+
+	padding: 0.6rem 0.8rem;
+
+	font-size: 0.85rem;
+	font-weight: 600;
 	color: var(--bg);
+	cursor: pointer;
+
+	transition:
+		transform 0.15s ease,
+		background 0.2s ease,
+		opacity 0.2s ease;
 
 	&:hover{
 		background-color: var(--accent-secondary-hover);
+		transform: translateY(-1px);
 	}
 
 }
@@ -31,3 +44,97 @@
 	color: var(--bg);
 	}
 }
+
+/* admin form */
+
+.product-form button {
+	border: none;
+	border-radius: 8px;
+
+	padding: 0.9rem 1rem;
+
+	font-size: 0.85rem;
+	font-weight: 600;
+
+	cursor: pointer;
+
+	transition:
+		transform 0.15s ease,
+		background 0.2s ease,
+		opacity 0.2s ease;
+}
+
+.product-form button[type="submit"] {
+	background: var(--accent-primary);
+	color: white;
+}
+
+.product-form button[type="submit"]:hover {
+	background: var(--accent-primary-hover);
+	transform: translateY(-1px);
+}
+
+.product-form button[type="button"] {
+	background: transparent;
+	border: 1px solid var(--border);
+	color: var(--text-h);
+}
+
+.product-form button[type="button"]:hover {
+	background: var(--bg);
+}
+
+
+
+
+
+/* admin-card-actions */
+
+.admin-card-actions button {
+	flex: 1;
+
+	border: none;
+	border-radius: 8px;
+
+	padding: 0.6rem 0.8rem;
+
+	font-size: 0.85rem;
+	font-weight: 600;
+
+	cursor: pointer;
+
+	transition:
+		transform 0.15s ease,
+		background 0.2s ease,
+		opacity 0.2s ease;
+}
+
+.admin-card-actions button:first-child {
+	background: var(--accent-primary);
+	color: white;
+}
+
+.admin-card-actions button:first-child:hover {
+	background: var(--accent-primary-hover);
+	transform: translateY(-1px);
+}
+
+.admin-card-actions button:last-child {
+	background: rgba(220, 38, 38, 0.1);
+	color: rgb(220, 38, 38);
+	border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.admin-card-actions button:last-child:hover {
+	background: rgb(220, 38, 38);
+	color: white;
+	transform: translateY(-1px);
+}
+
+
+
+
+@media (max-width: 600px) {
+.admin-card-actions {
+	flex-direction: column;
+}}

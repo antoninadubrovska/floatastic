@@ -129,8 +129,7 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 				onChange={handleChange}
 			/>
 
-			<input
-				type="text"
+			<textarea
 				name="details"
 				placeholder="Product details"
 				value={formData.details}
@@ -186,8 +185,9 @@ export default ProductForm;
 
 
 // TODO:
-// price: Number(formData.price),
-// stock: Number(formData.stock),
-// rating: Number(formData.rating),
-// (still stored as strings from inputs)
-// inside productData.
+// const productData = {
+// 	...formData,
+// 	price: Number(formData.price),
+// 	stock: Number(formData.stock),
+// 	rating: Number(formData.rating),
+// };

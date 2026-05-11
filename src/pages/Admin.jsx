@@ -2,10 +2,16 @@ import { useEffect, useState } from "react";
 import { useProductsStore } from "../store/useProductsStore";
 import ProductAdminForm from "../components/PruductAdminForm";
 import { useScroll } from "../hooks/useScroll";
+import { useFuseSearch } from "../hooks/useFuseSearch";
+import { useSortedProducts } from "../hooks/useSortedData";
+import SearchAndSort from "../components/SearchAndSort";
 
 const Admin = () => {
 	const { products, fetchProducts, deleteProduct, addProduct } =
 		useProductsStore();
+
+	const [searchItem, setSearchItem] = useState("");
+	const [sortOption, setSortOption] = useState("");
 
 	const [editingProduct, setEditingProduct] = useState(null);
 
@@ -15,13 +21,28 @@ const Admin = () => {
 
 	const { formRef, scrollToForm, scrollToTop } = useScroll();
 
+	const matchingProducts = useFuseSearch(products, searchItem, [
+		"name",
+		"category",
+	]);
+
+	const sortedProducts = useSortedProducts(matchingProducts, sortOption);
+
 	return (
 		<div className="admin-page">
 			<h2>Admin Panel</h2>
 
+			<SearchAndSort
+				searchItem={searchItem}
+				setSearchItem={setSearchItem}
+				sortOption={sortOption}
+				setSortOption={setSortOption}
+				searchPlaceholder="Search products..."
+			/>
+
 			{/* PRODUCT LIST */}
 			<div className="admin-products-list">
-				{products.map((p) => (
+				{sortedProducts.map((p) => (
 					<div key={p.id} className="admin-product-card">
 						<div>
 							<h2 className="admin-product-card-name">
@@ -98,7 +119,9 @@ const Admin = () => {
 				/>
 			</div>
 
-			<button className="scrollToTop" onClick={scrollToTop}>Back to top</button>
+			<button className="scrollToTop" onClick={scrollToTop}>
+				Back to top
+			</button>
 		</div>
 	);
 };

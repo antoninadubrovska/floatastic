@@ -1,19 +1,18 @@
-
 import ProductItem from "../components/ProductItem";
 import { useState, useEffect } from "react";
 import { useFuseSearch } from "../hooks/useFuseSearch";
 import { useProductsStore } from "../store/useProductsStore";
-import { useSortedProducts } from "../hooks/useSortedProducts";
+import { useSortedProducts } from "../hooks/useSortedData";
+import SearchAndSort from "../components/SearchAndSort";
 import { useScroll } from "../hooks/useScroll";
 
 //import { runCrudTest } from "../debug/crudTest";
 
 const Products = () => {
-
 	const { products, loading, fetchProducts } = useProductsStore();
 
-	const [searchItem, setSearchItem] = useState('');
-	const [ sortOption, setSortOption ] = useState('')
+	const [searchItem, setSearchItem] = useState("");
+	const [sortOption, setSortOption] = useState("");
 
 	// fetch from db when it loads
 
@@ -33,12 +32,9 @@ const Products = () => {
 	//sort
 	const sortedProducts = useSortedProducts(matchingProducts, sortOption);
 
-
 	if (loading && products.length === 0) {
 		return <p className="loading">Loading ... </p>;
 	}
-
-
 
 	return (
 		<div className="products-page">
@@ -46,25 +42,14 @@ const Products = () => {
 
 			{/* <button onClick={runCrudTest}>Run CRUD Test</button> */}
 
-			<div className="search">
-				<input
-					type="text"
-					placeholder="Search for a float..."
-					value={searchItem}
-					onChange={(e) => setSearchItem(e.target.value)}
-				/>{" "}
-				<select
-					className="sort"
-					value={sortOption}
-					onChange={(e) => setSortOption(e.target.value)}
-				>
-					<option value="">Sort by</option>
-					<option value="name-asc">Name A-Z</option>
-					<option value="name-desc">Name Z-A</option>
-					<option value="price-asc">Price low - high</option>
-					<option value="price-desc">Price high - low</option>
-				</select>
-			</div>
+			<SearchAndSort
+				searchItem={searchItem}
+				setSearchItem={setSearchItem}
+				sortOption={sortOption}
+				setSortOption={setSortOption}
+				searchPlaceholder="Search for a float..."
+			/>
+
 			<div className="products-list">
 				{/* {searchItem && matchingProducts.length === 0 && ( */}
 				{searchItem && sortedProducts.length === 0 && (
