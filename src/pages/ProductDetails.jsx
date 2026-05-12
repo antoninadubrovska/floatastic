@@ -30,7 +30,7 @@ const ProductDetails = () => {
 
 	// loading guard
 	if (!item) {
-		return <div className="details"> Loading product...</div>;
+		return <div className="loading product-details"> Loading product...</div>;
 	}
 
 	return (

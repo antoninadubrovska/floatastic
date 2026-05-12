@@ -66,6 +66,8 @@
 	margin: 2rm;
 }
 
-.loading {
+.product-details {
 	margin: 2em;
+	color: var(--bg-dark);
 }
+

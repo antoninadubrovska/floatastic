@@ -1,4 +1,4 @@
-.buy-btn{
+.buy-btn {
 	margin: 1em 0;
 	background-color: var(--accent-secondary);
 	border: 0cap;
@@ -18,14 +18,14 @@
 		background 0.2s ease,
 		opacity 0.2s ease;
 
-	&:hover{
+	&:hover {
 		background-color: var(--accent-secondary-hover);
 		transform: translateY(-1px);
 	}
-
 }
 
-.scrollToTop{
+
+.scrollToTop {
 	border: none;
 	border-radius: 8px;
 	padding: 0.7rem 1rem;
@@ -37,13 +37,16 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	background: var(--accent-primary);
+	background: var(--accent-secondary);
 	color: white;
-	&:hover{
-		background: var(--accent-primary-hover);
-	color: var(--bg);
+	transition:
+		transform 0.15s ease,
+		background 0.2s ease,
+		opacity 0.2s ease;
+	&:hover {
+		background-color: var(--accent-secondary-hover);
+		transform: translateY(-1px);
 	}
-	margin-bottom: 1em;
 }
 
 /* admin form */
@@ -84,10 +87,6 @@
 .product-form button[type="button"]:hover {
 	background: var(--bg);
 }
-
-
-
-
 
 /* admin-card-actions */
 
@@ -132,10 +131,58 @@
 	transform: translateY(-1px);
 }
 
-
-
-
 @media (max-width: 600px) {
-.admin-card-actions {
-	flex-direction: column;
-}}
+	.admin-card-actions {
+		flex-direction: column;
+	}
+}
+
+
+
+
+
+/* cart */
+
+
+.pay-btn,
+.continue-shopping-btn {
+	border: none;
+	border-radius: 10px;
+	padding: 0.7rem 1rem;
+	font-size: 0.95rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: 0.2s ease;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition:
+		transform 0.15s ease,
+		background 0.2s ease,
+		opacity 0.2s ease;
+}
+
+
+
+.pay-btn {
+	background: var(--accent-secondary);
+	color: white;
+}
+
+.pay-btn:hover {
+	background: var(--accent-secondary-hover);
+	transform: translateY(-1px);
+}
+
+.continue-shopping-btn {
+	background: var(--accent-primary);
+	color: white;
+
+}
+
+.continue-shopping-btn:hover {
+	background: var(--accent-primary-hover);
+	color: var(--bg);
+	transform: translateY(-1px);
+}

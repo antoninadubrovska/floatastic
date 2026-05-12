@@ -1,17 +1,19 @@
-import { NavLink } from 'react-router'
-import { useState } from 'react'
-import headerLogo from './../assets/svg/logo-full.svg'
+import { NavLink } from "react-router";
+import { useState } from "react";
+import headerLogo from "./../assets/svg/logo-full.svg";
 import cartIcon from "./../assets/svg/cart-22D3EE.svg";
+import { useAuthStore } from "../store/useAuthStore";
+
 
 
 export default function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-	const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+	const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-	const closeMenu = () => setIsMenuOpen(false)
+	const closeMenu = () => setIsMenuOpen(false);
 
-
+	const { user } = useAuthStore();
 
 	return (
 		<header>
@@ -52,16 +54,19 @@ export default function Header() {
 					<NavLink to="/products" onClick={closeMenu}>
 						Products
 					</NavLink>
+
+					{user && (
+						<NavLink to="/admin" onClick={closeMenu}>
+							Admin
+						</NavLink>
+					)}
+
 					<NavLink to="/cart" onClick={closeMenu}>
-						<img
-							src={cartIcon}
-							alt="Cart"
-							className="cart-icon"
-						/>
+						<img src={cartIcon} alt="Cart" className="cart-icon" />
 					</NavLink>
+
 				</div>
 			</nav>
 		</header>
 	);
-
 }

@@ -21,8 +21,10 @@ export const useProductsStore = create((set, get) => ({
 
 		try {
 
+
       const snapshot = await getDocs(collection(db, "products"));
 
+	  //Firestore document id always becomes the real app ID
       const products = snapshot.docs.map((doc) => ({
 
 		  //Firestore ID always wins

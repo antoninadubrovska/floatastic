@@ -18,7 +18,9 @@ const CartItem = ({ item }) => {
 				<button onClick={() => decreaseQuantity(item.id)}>-</button>
 
 				<button onClick={() => removeFromCart(item.id)}>Remove</button>
-				<p className="cart-item-quantity"> Qty {item.quantity}</p>
+				<p className="cart-item-quantity">
+					{item.quantity} {item.quantity === 1 ? "Item" : "Items"}
+				</p>
 			</div>
 
 			<p>Subtotal: {item.price * item.quantity} kr</p>
