@@ -30,7 +30,6 @@ export default function Footer() {
 
 			{/* TODO: semantic */}
 			<div className="footer-section footer-address-and-follow">
-
 				<div className="">Address</div>
 				<div className="follow">
 					<NavLink to="">
@@ -70,6 +69,13 @@ export default function Footer() {
 				{user && <button onClick={handleLogout}>Log out</button>} */}
 
 				<div className="admin-logout">
+					{/* TODO: Semantically better:
+
+<button onClick={handleLogout}>
+	Log out
+</button>
+can style button to look like a link.
+better accessibility and semantics. */}
 					{user ? (
 						<NavLink onClick={handleLogout}>Log out</NavLink>
 					) : (

@@ -90,12 +90,7 @@ header nav {
 
 .cart-icon{
 	height: 1.1em;
-
-	/* &:hover{
-		box-shadow: 0.2px 0.2px 0.8px var(--accent-primary);
-	} */
-
-
+	transform: translateY(3px);
 
 }
 
