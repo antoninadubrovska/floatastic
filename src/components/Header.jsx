@@ -1,6 +1,7 @@
 import { NavLink } from "react-router";
 import { useState } from "react";
-import headerLogo from "./../assets/svg/logo-full.svg";
+// import headerLogo from "./../assets/svg/logo-full.svg";
+import Logo from "./../assets/svg/logo-full.svg?react";
 import cartIcon from "./../assets/svg/cart-22D3EE.svg";
 import { useAuthStore } from "../store/useAuthStore";
 
@@ -17,12 +18,16 @@ export default function Header() {
 
 	return (
 		<header>
-			<NavLink to="/" onClick={closeMenu}>
+			{/* <NavLink to="/" onClick={closeMenu}>
 				<img
 					src={headerLogo}
 					alt="Floatastic"
 					className="logo-full-header"
 				/>
+			</NavLink> */}
+
+			<NavLink to="/" onClick={closeMenu} className="logoLink">
+				<Logo className="logo-full-header" />
 			</NavLink>
 
 			<button
@@ -61,10 +66,13 @@ export default function Header() {
 						</NavLink>
 					)}
 
-					<NavLink to="/cart" onClick={closeMenu}>
+					<NavLink
+						className="cartIconLink"
+						to="/cart"
+						onClick={closeMenu}
+					>
 						<img src={cartIcon} alt="Cart" className="cart-icon" />
 					</NavLink>
-
 				</div>
 			</nav>
 		</header>

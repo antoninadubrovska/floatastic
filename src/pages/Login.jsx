@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { loginUser } from "../services/authService";
 import { useNavigate } from "react-router";
+import { Link } from 'react-router'
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -24,29 +25,37 @@ const Login = () => {
 
 	return (
 		<div className="login-page">
-			<h1>Admin Login</h1>
+			<h2>Admin Login</h2>
 
-			<form onSubmit={handleSubmit}>
-				<input
-					type="email"
-					placeholder="Email"
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-					required
-				/>
+			<div>
+				<form className="login-controls" onSubmit={handleSubmit}>
+					<input
+						type="email"
+						placeholder="Email"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						required
+					/>
 
-				<input
-					type="password"
-					placeholder="Password"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					required
-				/>
+					<input
+						type="password"
+						placeholder="Password"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						required
+					/>
 
-				<button type="submit">Log in</button>
-			</form>
+					<button className="login-submit" type="submit">
+						Log in
+					</button>
 
-			{error && <p>{error}</p>}
+					<Link className="link-go-back" to="/products">
+						Back to products
+					</Link>
+				</form>
+
+				{error && <p>{error}</p>}
+			</div>
 		</div>
 	);
 };

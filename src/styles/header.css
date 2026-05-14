@@ -10,12 +10,30 @@ header {
 }
 
 /* ............. */
-/* .logo-full-header:hover {
-	box-shadow: 0.2px 0.2px 0.8px var(--accent-primary);
-} */
+.logoLink {
+	display: flex;
+	align-items: center;
+}
 
+.logo-full-header {
+	height: 42px;
+	width: auto;
+	transition:
+		transform 0.2s ease,
+		filter 0.2s ease;
+}
+
+.logoLink:hover .logo-full-header {
+	transform: scale(1.02);
+	filter: contrast(1.1);
+}
 /* ................... */
 
+.nav-panel {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
 .nav-panel a {
 	/* font-size: 1.2rem; */
 	font-weight: 500;
@@ -90,8 +108,22 @@ header nav {
 
 .cart-icon{
 	height: 1.1em;
-	transform: translateY(3px);
+	transition:
+		transform 0.2s ease,
+		filter 0.2s ease;
+}
 
+.cartIconLink {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.6em;
+	line-height: 1;
+}
+
+.cartIconLink:hover .cart-icon {
+	filter:contrast(1.1);
+	transform: scale(1.1);
 }
 
 /* MOBILE */
