@@ -33,7 +33,7 @@ const Products = () => {
 	const sortedProducts = useSortedProducts(matchingProducts, sortOption);
 
 	if (loading && products.length === 0) {
-		return <p className="loading">Loading ... </p>;
+		return <p className="products-loading">Loading ... </p>;
 	}
 
 	return (

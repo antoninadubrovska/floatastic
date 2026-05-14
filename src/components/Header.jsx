@@ -1,9 +1,11 @@
 import { NavLink } from "react-router";
 import { useState } from "react";
-// import headerLogo from "./../assets/svg/logo-full.svg";
 import Logo from "./../assets/svg/logo-full.svg?react";
 import cartIcon from "./../assets/svg/cart-22D3EE.svg";
 import { useAuthStore } from "../store/useAuthStore";
+import { Link } from "react-router";
+import { useCartStore } from "../store/useCartStore";
+import { getCartTotalItems } from "../utils/cartCounter";
 
 
 
@@ -15,17 +17,11 @@ export default function Header() {
 	const closeMenu = () => setIsMenuOpen(false);
 
 	const { user } = useAuthStore();
+	const { cart } = useCartStore();
+	const totalItems = getCartTotalItems(cart);
 
 	return (
 		<header>
-			{/* <NavLink to="/" onClick={closeMenu}>
-				<img
-					src={headerLogo}
-					alt="Floatastic"
-					className="logo-full-header"
-				/>
-			</NavLink> */}
-
 			<NavLink to="/" onClick={closeMenu} className="logoLink">
 				<Logo className="logo-full-header" />
 			</NavLink>
@@ -72,6 +68,9 @@ export default function Header() {
 						onClick={closeMenu}
 					>
 						<img src={cartIcon} alt="Cart" className="cart-icon" />
+						{totalItems > 0 && (
+							<span className="cart-badge">{totalItems}</span>
+						)}
 					</NavLink>
 				</div>
 			</nav>

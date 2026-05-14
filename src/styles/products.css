@@ -6,6 +6,7 @@
 
 	@media (max-width: 599px) {
 		padding: 0.4em;
+		margin: 1.2em 0;
 	}
 }
 
@@ -37,6 +38,12 @@
 	} */
 }
 
+.products-loading{
+	margin-top: 2em;
+	font-weight: 500;
+	color: var(--text);
+	font-size: 1.1em;
+}
 .sort {
 	padding: 0.5em 1em;
 	border: 1px solid var(--border);

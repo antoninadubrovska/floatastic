@@ -1,16 +1,21 @@
 import { useCartStore } from "../store/useCartStore";
 import { Link } from "react-router";
 import CartItem from "../components/CartItem";
+import { useNavigate } from 'react-router'
+import { getCartTotalPrice } from "../utils/cartCounter";
 
 const Cart = () => {
-	const { cart } = useCartStore();
+	const { cart, clearCart } = useCartStore();
 
-	const totalPrice = cart.reduce(
-		(total, item) => total + item.price * item.quantity,
-		0,
-	);
+	// const totalPrice = cart.reduce(
+	// 	(total, item) => total + item.price * item.quantity,
+	// 	0,
+	// );
+	const totalPrice = getCartTotalPrice(cart);
+	const navigate = useNavigate();
 
-	
+
+
 	return (
 		<div className="cart-page">
 			<h2>Shopping Cart</h2>
@@ -42,7 +47,15 @@ const Cart = () => {
 								Add more floats
 							</Link>
 
-							<button className="pay-btn">Pay</button>
+							<button
+								className="pay-btn"
+								onClick={() => {
+									clearCart();
+									navigate("/checkout-success");
+								}}
+							>
+								Pay
+							</button>
 						</div>
 					</div>
 				</>

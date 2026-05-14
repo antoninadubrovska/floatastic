@@ -52,6 +52,8 @@ export const useCartStore = create(
 						)
 						.filter((item) => item.quantity > 0),
 				})),
+
+				clearCart: () => set({ cart: [] }),
 		}),
 		{
 			name: "cart-storage", // key in localStorage

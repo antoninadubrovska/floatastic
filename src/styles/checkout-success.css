@@ -1,0 +1,26 @@
+.checkout-success-page{
+
+		padding: 2em;
+		display: flex;
+		flex-direction: column;
+		margin: 2em;
+		gap: 0.2em;
+
+		h2{
+			font-size: 1.2rem;
+			font-weight: bold;
+			color: var(--text-h);
+			margin: 1em;
+			&:hover {
+				color: var(--accent-secondary-hover);
+			}
+		}
+
+		.contine-shopping{
+			color: var(--accent-primary);
+			&:hover{
+				color: var(--accent-primary-hover);
+			}
+
+		}
+}

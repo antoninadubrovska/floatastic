@@ -7,7 +7,7 @@ import Cart from '../pages/Cart'
 import Admin from '../pages/Admin'
 import ProtectedRoute from "../components/ProtectedRoute";
 import Login from "../pages/Login";
-//import { Component } from "react";
+import CheckoutSuccess from "../pages/CheckoutSuccess";
 
 export const routes = [
 	{
@@ -41,6 +41,10 @@ export const routes = [
 			{
 				path: "/login",
 				Component: Login,
+			},
+			{
+				path: "/checkout-success",
+				Component: CheckoutSuccess,
 			},
 		],
 	},

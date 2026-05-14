@@ -29,7 +29,6 @@
 	font-size: 0.85rem;
 	font-weight: 600;
 	cursor: pointer;
-	transition: 0.2s ease;
 	text-decoration: none;
 	display: inline-flex;
 	align-items: center;
@@ -44,6 +43,10 @@
 		background-color: var(--accent-secondary-hover);
 		transform: translateY(-1px);
 	}
+
+	/* @media (max-width: 600px){
+		margin-bottom:1em;
+	} */
 }
 
 /* admin form */
