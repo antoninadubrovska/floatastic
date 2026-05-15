@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useProductsStore } from "../store/useProductsStore";
-import ProductAdminForm from "../components/PruductAdminForm";
+import ProductAdminForm from "../components/ProductAdminForm";
 import { useScroll } from "../hooks/useScroll";
 import { useFuseSearch } from "../hooks/useFuseSearch";
 import { useSortedProducts } from "../hooks/useSortedData";

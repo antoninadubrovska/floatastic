@@ -172,3 +172,14 @@
 		font-size: 0.9em;
 	}
 }
+
+.success-message {
+	color: var(--success);
+	margin-top: 10px;
+	font-weight: 500;
+}
+
+.info-message {
+	color: var(--accent-primary);
+	margin: 1.2em;
+}
