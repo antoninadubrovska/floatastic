@@ -3,7 +3,7 @@ import { useState } from "react";
 import Logo from "./../assets/svg/logo-full.svg?react";
 import cartIcon from "./../assets/svg/cart-22D3EE.svg";
 import { useAuthStore } from "../store/useAuthStore";
-import { Link } from "react-router";
+// import { Link } from "react-router";
 import { useCartStore } from "../store/useCartStore";
 import { getCartTotalItems } from "../utils/cartCounter";
 

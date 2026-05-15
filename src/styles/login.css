@@ -74,3 +74,21 @@
 		color: var(--accent-primary-hover);
 	}
 }
+
+.error-message {
+	color: #e74c3c;
+	font-size: 0.85eem;
+	margin-top: 0.6em;
+}
+
+@keyframes shake {
+	0% { transform: translateX(0); }
+	25% { transform: translateX(-6px); }
+	50% { transform: translateX(6px); }
+	75% { transform: translateX(-6px); }
+	100% { transform: translateX(0); }
+}
+
+.form-shake {
+	animation: shake 0.25s ease-in-out;
+}
