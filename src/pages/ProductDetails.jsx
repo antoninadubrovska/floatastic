@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useEffect } from "react";
 //import { getImageUrl } from "../utils/getImageUrl";
-import { useProductsStore } from "../store/useProductsStore";
+import { useProductsStore } from "../store/crud";
 import { Link } from "react-router";
 import { useBuyNow } from "../hooks/useBuyNow";
 import { useProductImage } from "../hooks/useProductImage";

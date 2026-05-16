@@ -1,7 +1,7 @@
 import ProductItem from "../components/ProductItem";
 import { useState, useEffect } from "react";
 import { useFuseSearch } from "../hooks/useFuseSearch";
-import { useProductsStore } from "../store/useProductsStore";
+import { useProductsStore } from "../store/crud";
 import { useSortedProducts } from "../hooks/useSortedData";
 import SearchAndSort from "../components/SearchAndSort";
 import { useScroll } from "../hooks/useScroll";

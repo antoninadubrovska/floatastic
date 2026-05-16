@@ -199,12 +199,13 @@
 		border: none;
 		border-radius: 8px;
 
-		padding: 0.8rem 1rem;
+		padding: 0.8em 1em;
 
-		font-size: 0.85rem;
+		font-size: 0.85em;
 		font-weight: 600;
 		color: var(--bg);
 		cursor: pointer;
+		/* align-self: center; */
 
 		transition:
 			transform 0.15s ease,

@@ -1,4 +1,4 @@
-import { useProductsStore } from "../store/useProductsStore";
+import { useProductsStore } from "../store/crud";
 
 // temporary debug script
 

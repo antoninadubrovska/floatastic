@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useProductsStore } from "../store/useProductsStore";
+import { useProductsStore } from "../store/crud";
 import ProductAdminForm from "../components/ProductAdminForm";
 import { useScroll } from "../hooks/useScroll";
 import { useFuseSearch } from "../hooks/useFuseSearch";

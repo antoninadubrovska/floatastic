@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useProductsStore } from "../store/useProductsStore";
+import { useProductsStore } from "../store/crud";
 import { productSchema } from "../validations/productValidation";
 
 const ProductForm = ({ editingProduct, setEditingProduct }) => {
