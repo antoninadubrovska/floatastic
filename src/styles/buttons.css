@@ -31,8 +31,8 @@
 .scrollToTop {
 	border: none;
 	border-radius: 8px;
-	padding: 0.8rem 1rem;
-	font-size: 0.85rem;
+	padding: 0.8em 1em;
+	font-size: 0.95em;
 	font-weight: 600;
 	cursor: pointer;
 	text-decoration: none;
@@ -68,9 +68,9 @@
 	border: none;
 	border-radius: 8px;
 
-	padding: 0.8rem 1rem;
+	padding: 0.8em 1em;
 
-	font-size: 0.85rem;
+	font-size: 0.95em;
 	font-weight: 600;
 
 	cursor: pointer;
@@ -109,9 +109,9 @@
 	border: none;
 	border-radius: 8px;
 
-	padding: 0.8rem 1rem;
+	padding: 0.8em 1em;
 
-	font-size: 0.85rem;
+	font-size: 0.95em;
 	font-weight: 600;
 
 	cursor: pointer;
@@ -134,12 +134,12 @@
 
 .admin-card-actions button:last-child {
 	background: rgba(220, 38, 38, 0.1);
-	color: rgb(220, 38, 38);
+	color: var(--warning);
 	border: 1px solid rgba(220, 38, 38, 0.2);
 }
 
 .admin-card-actions button:last-child:hover {
-	background: rgb(220, 38, 38);
+	background: var(--warning);
 	color: white;
 	transform: translateY(-1px);
 }
@@ -161,9 +161,9 @@
 .continue-shopping-btn {
 	border: none;
 	border-radius: 8px;
-	padding: 0.8rem 1rem;
+	padding: 0.8em 1em;
 
-	font-size: 0.85rem;
+	font-size: 1em;
 	font-weight: 600;
 	cursor: pointer;
 	text-decoration: none;

@@ -226,7 +226,7 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 				onChange={handleChange}
 			/>
 
-			// TODO: make sure stock number cannot be negative
+			{/* TODO: make sure stock number cannot be negative */}
 
 			<input
 				type="number"
