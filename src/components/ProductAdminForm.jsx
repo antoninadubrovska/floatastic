@@ -214,7 +214,12 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 				<span className="required-star">*</span>
 			</div>
 
-			<input type="file" accept="image/*" onChange={handleImageUpload} />
+			<input
+				type="file"
+				accept="image/*"
+				onChange={handleImageUpload}
+				className="file-input"
+			/>
 			{/* <input
 				type="text"
 				name="image"
