@@ -4,9 +4,10 @@ import { logoutUser } from "../services/authService";
 import { useAuthStore } from "../store/useAuthStore";
 import { useNavigate } from "react-router";
 
-import followInstagram from "./../assets/svg/insta-bg-soft.svg";
-import followWhathapp from "./../assets/svg/whatsapp-bg-soft.svg";
-import followFacebook from "./../assets/svg/fb-bg-soft.svg";
+// import followInstagram from "./../assets/svg/insta-bg-soft.svg";
+// import followWhathapp from "./../assets/svg/whatsapp-bg-soft.svg";
+// import followFacebook from "./../assets/svg/fb-bg-soft.svg";
+import { socialLinks } from "../config/socialLinks";
 
 export default function Footer() {
 	const { user } = useAuthStore();
@@ -30,31 +31,31 @@ export default function Footer() {
 
 			{/* TODO: semantic */}
 			<div className="footer-section footer-address-and-follow">
-				<div className="">Address</div>
+				{/* <div className="">Address</div> */}
+
+				<address className="footer-address">
+					<strong>Floatastic HQ</strong>
+					<br />
+					Stockholm, Sweden
+					<br />
+					<p className="footer-contact">
+						<a href="mailto:hello@floatastic.se">
+							hello@floatastic.se
+						</a>
+					</p>
+				</address>
+
 				<div className="follow">
-					<NavLink to="">
-						<img
-							src={followInstagram}
-							alt="Instagram"
-							className="follow-instagram"
-						/>
-					</NavLink>
-
-					<NavLink to="">
-						<img
-							src={followFacebook}
-							alt="Facebook"
-							className="follow-facebook"
-						/>
-					</NavLink>
-
-					<NavLink to="">
-						<img
-							src={followWhathapp}
-							alt="WhatsApp"
-							className="follow-whathapp"
-						/>
-					</NavLink>
+					{socialLinks.map((link) => (
+						<a
+							key={link.href}
+							href={link.href}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<img src={link.img} alt={link.alt} />
+						</a>
+					))}
 				</div>
 			</div>
 

@@ -7,10 +7,6 @@ import { getCartTotalPrice } from "../utils/cartCounter";
 const Cart = () => {
 	const { cart, clearCart } = useCartStore();
 
-	// const totalPrice = cart.reduce(
-	// 	(total, item) => total + item.price * item.quantity,
-	// 	0,
-	// );
 	const totalPrice = getCartTotalPrice(cart);
 	const navigate = useNavigate();
 

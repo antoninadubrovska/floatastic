@@ -63,15 +63,6 @@ const Admin = () => {
 								Edit
 							</button>
 
-							{/* // If form depends on state rendering first ( so DOM is updated before scrolling. ):
-								// onClick={() => {
-								// 	setEditingProduct(p);
-
-								// 	setTimeout(() => {
-								// 		scrollToForm();
-								// 	}, 0);
-								// }} */}
-
 							<button
 								onClick={() => {
 									const confirmed = window.confirm(
@@ -90,24 +81,6 @@ const Admin = () => {
 				))}
 			</div>
 
-			{/* <button
-				onClick={ async () =>
-					addProduct({
-						id: "9",
-						name: "Watermelon Pool Float",
-						price: 219,
-						category: "pool",
-						image: "products/img9-watermelon-pool.webp",
-						details:
-							"Refreshing watermelon-inspired pool float with lightweight inflatable design perfect for sunny poolside afternoons.",
-						stock: 0,
-						featured: false,
-						rating: 0,
-					})
-				}
-			>
-				Restore Product - rewrite in details
-			</button> */}
 
 			{/* FORM */}
 			<div ref={formRef} className="admin-form">

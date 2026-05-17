@@ -16,13 +16,10 @@ const Login = () => {
 	const [errors, setErrors] = useState("");
 
 	// Form validation using Joi schema
-	// 	errors - frontend validation
-	// serverError - backend response
 	const [serverError, setServerError] = useState("");
 
 	const [shake, setShake] = useState(false);
-	// refs for auto-focus
-	// direct reference to DOM elements
+	// use ref to focus on the field when page reloads
 	const emailRef = useRef(null); // cursor inside email input
 	const passwordRef = useRef(null);
 
@@ -36,7 +33,7 @@ const Login = () => {
 	};
 
 	const handleSubmit = async (e) => {
-		// Stops page reload.
+		// stop the form from submitting defaut behaviour too early
 		e.preventDefault();
 
 		setServerError("");

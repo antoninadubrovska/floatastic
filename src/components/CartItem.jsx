@@ -47,7 +47,6 @@ const CartItem = ({ item }) => {
 			</div>
 		</div>
 
-		// TODO: add a line
 	);
 };
 

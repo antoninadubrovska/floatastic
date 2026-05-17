@@ -1,53 +1,109 @@
+
+
+
 footer {
 	background: var(--bg-dark);
 	color: var(--text-inverted);
-	padding: 2em;
-	text-align: center;
+	padding: 2.5em 2em;
 	display: flex;
-	gap: 2em;
 	flex-direction: column;
-	justify-content: center;
+	gap: 2em;
 	align-items: center;
+	text-align: center;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-
-	@media (min-width: 560px){
+/* desktop layout */
+@media (min-width: 560px) {
+	footer {
 		flex-direction: row;
-		justify-content: space-around;
-
+		justify-content: space-between;
+		align-items: flex-start;
+		text-align: left;
+		padding: 3em 4em;
 	}
 }
 
-.footer-address-and-follow {
+/* sections spacing */
+.footer-section {
 	display: flex;
-	gap:0.6em;
 	flex-direction: column;
+	gap: 0.8em;
 }
+
+/* nav links */
+.footer-nav a {
+	color: var(--text-inverted);
+	text-decoration: none;
+	font-weight: 500;
+	opacity: 0.8;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-nav a:hover {
+	opacity: 1;
+	transform: translateX(2px);
+}
+
+
+.footer-address {
+	font-style: normal;
+	line-height: 1.6;
+	font-size: 0.9rem;
+	opacity: 0.9;
+	text-align: center;
+}
+
+.footer-address strong {
+	font-size: 1.1em;
+	margin-bottom: 0.6em;
+}
+
+.footer-contact a {
+	color: var(--text-inverted);
+	opacity: 0.8;
+	text-decoration: none;
+	font-size: 1em;
+}
+
+.footer-contact a:hover {
+	opacity: 1;
+	text-decoration: underline;
+}
+
+/* social icons */
 .follow {
 	display: flex;
-	gap:0.6em;
-	align-self: center;
-
-	.follow-instagram {
-		height: 1em;
-
-	}
-
-	.follow-facebook {
-		height: 1.1em;
-
-	}
-
-	.follow-whathapp {
-		height: 1.1em;
-
-	}
-
+	gap: 0.9em;
+	justify-content: center;
+	margin-top: 0.2em;
 }
 
 .follow img {
-	transition: transform 0.2s ease;
+	height: 1.2em;
+	opacity: 0.8;
+	transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .follow a:hover img {
-	transform: translateY(-2px) scale(1.05);
+	transform: translateY(-2px) scale(1.08);
+	opacity: 1;
+}
+
+/* admin link */
+.footer-admin a {
+	color: var(--text-inverted);
+	text-decoration: none;
+	opacity: 0.8;
+	font-size: 0.9rem;
+	transition: opacity 0.2s ease;
+}
+
+.footer-admin a:hover {
+	opacity: 1;
+}
+
+
+footer {
+	backdrop-filter: blur(8px);
 }

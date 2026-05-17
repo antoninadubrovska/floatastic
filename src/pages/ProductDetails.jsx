@@ -3,13 +3,11 @@ import { useEffect } from "react";
 //import { getImageUrl } from "../utils/getImageUrl";
 import { useProductsStore } from "../store/crud";
 import { Link } from "react-router";
-// import { useBuyNow } from "../hooks/useBuyNow";
 import { useProductImage } from "../hooks/useProductImage";
 import BuyButton from "../components/BuyButton";
 
 const ProductDetails = () => {
 	const { id } = useParams();
-	//const navigate = useNavigate();
 
 	const { products, fetchProducts } = useProductsStore();
 
@@ -22,9 +20,6 @@ const ProductDetails = () => {
 
 	// find item after it exists
 	const item = products.find((i) => i.id === id);
-
-	//buy
-	// const buyNow = useBuyNow()
 
 
 	const imageUrl = useProductImage(item?.image);

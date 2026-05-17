@@ -41,6 +41,10 @@
 	justify-content: center;
 	background: var(--accent-secondary);
 	color: white;
+
+
+
+
 	transition:
 		transform 0.15s ease,
 		background 0.2s ease,
@@ -54,6 +58,9 @@
 		margin-bottom:1em;
 	} */
 }
+
+
+
 
 /* admin form */
 
