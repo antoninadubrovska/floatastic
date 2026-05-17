@@ -1,8 +1,11 @@
+
 import { useEffect, useState } from "react";
 import { useProductsStore } from "../store/crud";
 import { productSchema } from "../validations/productValidation";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../data/database";
+
+
 
 const ProductForm = ({ editingProduct, setEditingProduct }) => {
 	const { addProduct, updateProduct } = useProductsStore();
@@ -24,7 +27,6 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 	const [loading, setLoading] = useState(false);
 
 	const [uploading, setUploading] = useState(false);
-
 
 	const handleImageUpload = async (e) => {
 		const file = e.target.files[0];
@@ -88,7 +90,11 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 
 			if (type === "checkbox") {
 				newValue = checked;
-			} else if (name === "price" || name === "stock" || name === "rating") {
+			} else if (
+				name === "price" ||
+				name === "stock" ||
+				name === "rating"
+			) {
 				newValue = value === "" ? "" : Number(value);
 			} else {
 				newValue = value;
@@ -113,7 +119,6 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 		setErrors({});
 		setSuccessMessage("");
 		setLoading(true);
-
 
 		const productData = {
 			...formData,
@@ -282,4 +287,3 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 };
 
 export default ProductForm;
-

@@ -86,6 +86,8 @@ export const useProductsStore = create((set, get) => ({
     } catch (error) {
       console.error("Error updating product:", error);
     }
-  },
+	  },
+
+
 }));
 
