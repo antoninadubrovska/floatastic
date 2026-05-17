@@ -8,6 +8,11 @@ export default defineConfig({
   plugins: [
 		react(),
 		svgr(),
-    babel({ presets: [reactCompilerPreset()] })
-  ],
+		babel({
+			presets: [reactCompilerPreset()]
+
+
+	 })
+	],
+	base: '/floatastic/'
 })

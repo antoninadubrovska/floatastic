@@ -21,6 +21,12 @@
 	}
 }
 
+.buy-btn.added {
+	background-color: var(--success);
+	color: white;
+	transform: scale(1.02);
+}
+
 
 .scrollToTop {
 	border: none;

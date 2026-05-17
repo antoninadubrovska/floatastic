@@ -1,10 +1,11 @@
 import { Link } from "react-router";
-import { useBuyNow } from "../hooks/useBuyNow";
+// import { useBuyNow } from "../hooks/useBuyNow";
 import { useProductImage } from "../hooks/useProductImage";
+import BuyButton from "../components/BuyButton";
 
 //buy
 const ProductItem = ({ item }) => {
-	const buyNow = useBuyNow();
+	// const buyNow = useBuyNow();
 
 
 	// temporary solution
@@ -17,7 +18,6 @@ const ProductItem = ({ item }) => {
 
 	return (
 		<div className="product-item product-card-preview">
-
 			{/* Firebase storage image handling */}
 			{/* {firebaseImageUrl && (
 				<img
@@ -43,9 +43,10 @@ const ProductItem = ({ item }) => {
 				Read more...
 			</Link>
 
-			<button className="buy-btn" onClick={() => buyNow(item)}>
+			{/* <button className="buy-btn" onClick={() => buyNow(item)}>
 				Buy
-			</button>
+			</button> */}
+			<BuyButton item={item} />
 		</div>
 	);
 };;

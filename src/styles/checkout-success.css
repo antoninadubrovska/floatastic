@@ -18,6 +18,7 @@
 
 		.contine-shopping{
 			color: var(--accent-primary);
+			margin-top: 0.8em;
 			&:hover{
 				color: var(--accent-primary-hover);
 			}

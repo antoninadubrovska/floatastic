@@ -35,7 +35,7 @@ export default function Footer() {
 					<NavLink to="">
 						<img
 							src={followInstagram}
-							alt=""
+							alt="Instagram"
 							className="follow-instagram"
 						/>
 					</NavLink>
@@ -43,7 +43,7 @@ export default function Footer() {
 					<NavLink to="">
 						<img
 							src={followFacebook}
-							alt=""
+							alt="Facebook"
 							className="follow-facebook"
 						/>
 					</NavLink>
@@ -51,31 +51,15 @@ export default function Footer() {
 					<NavLink to="">
 						<img
 							src={followWhathapp}
-							alt=""
+							alt="WhatsApp"
 							className="follow-whathapp"
 						/>
 					</NavLink>
 				</div>
 			</div>
 
-			{/* <div className="footer-section footer-follow">
-
-
-			</div> */}
-
 			<nav className="footer-section footer-admin">
-				{/* <NavLink to="/admin">Admin</NavLink>
-
-				{user && <button onClick={handleLogout}>Log out</button>} */}
-
 				<div className="admin-logout">
-					{/* TODO: Semantically better:
-
-<button onClick={handleLogout}>
-	Log out
-</button>
-can style button to look like a link.
-better accessibility and semantics. */}
 					{user ? (
 						<NavLink onClick={handleLogout}>Log out</NavLink>
 					) : (
@@ -83,10 +67,8 @@ better accessibility and semantics. */}
 					)}
 				</div>
 			</nav>
-
-			{/* FLOW: When await signOut(auth) runs,Firebase clears session and triggers onAuthStateChanged. Then thr listener automatically does: setUser(null), then ProtectedRoute blocks /admin and user becomes logged out everywhere, SO signOut() -> onAuthStateChanged() -> setUser(null) */}
 		</footer>
 	);
 }
 
-// TODO: footer contacts, nav links, social media icons etc.
+
