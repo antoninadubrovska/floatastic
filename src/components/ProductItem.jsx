@@ -6,15 +6,37 @@ import { useProductImage } from "../hooks/useProductImage";
 const ProductItem = ({ item }) => {
 	const buyNow = useBuyNow();
 
-	const imageUrl = useProductImage(item?.image);
+
+	// temporary solution
+	// Firebase image handling
+	const firebaseImageUrl = useProductImage(item?.image);
+	const isExternalUrl = (value) => /^https?:\/\//.test(value);
+	const finalImage = isExternalUrl(item?.image)
+	? item.image
+	: firebaseImageUrl;
 
 	return (
 		<div className="product-item product-card-preview">
-			<img
-				className="product-card-image-preview"
-				src={imageUrl || item.image}
-				alt={item.name}
-			/>
+
+			{/* Firebase storage image handling */}
+			{/* {firebaseImageUrl && (
+				<img
+					className="product-card-image-preview"
+					src={firebaseImageUrl}
+					alt={item.name}
+				/>
+			)} */}
+
+			{/* temporary solution */}
+
+			{finalImage && (
+				<img
+					className="product-card-image-preview"
+					src={finalImage}
+					alt={item.name}
+				/>
+			)}
+
 			<p className="product-card-preview-name">{item.name}</p>
 			<p className="product-card-preview-price">{item.price} kr</p>
 			<Link to={"/products/" + item.id} className="link-read-more">
@@ -26,6 +48,6 @@ const ProductItem = ({ item }) => {
 			</button>
 		</div>
 	);
-};
+};;
 
 export default ProductItem;

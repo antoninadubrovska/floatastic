@@ -3,7 +3,7 @@
 
 
 
-
+// original list of objects before adding properties
 // const products = [
 // 	{
 // 	  "id": "1",

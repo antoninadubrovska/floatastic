@@ -17,8 +17,30 @@ export const productSchema = Joi.object({
 		"string.min": "Category must be at least 2 characters",
 	}),
 
-	image: Joi.string().uri().allow("").messages({
-		"string.uri": "Image must be a valid URL",
+
+	// temporary solution
+	image: Joi.string()
+	.allow("")
+	.custom((value, helpers) => {
+		if (!value) return value;
+
+		//  currently allow full URLs
+		const isHttpUrl = /^https?:\/\/.+/i.test(value);
+
+		// allow firebase-style paths like:
+		// products/img13-pinapple-mattress.webp
+		// img13-pinapple-mattress.webp
+		const isFirebasePath = /^[a-zA-Z0-9-_\/]+\.(jpg|jpeg|png|webp|gif)$/i.test(value);
+
+		if (isHttpUrl || isFirebasePath) {
+			return value;
+		}
+
+		return helpers.error("any.invalid");
+	})
+	.messages({
+		"any.invalid":
+			"Image must be a valid URL or the storage file name",
 	}),
 
 	details: Joi.string().allow(""),

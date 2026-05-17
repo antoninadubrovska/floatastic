@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useProductsStore } from "../store/crud";
 import { productSchema } from "../validations/productValidation";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "../data/database";
 
 const ProductForm = ({ editingProduct, setEditingProduct }) => {
 	const { addProduct, updateProduct } = useProductsStore();
@@ -20,6 +22,33 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 
 	const [successMessage, setSuccessMessage] = useState("");
 	const [loading, setLoading] = useState(false);
+
+	const [uploading, setUploading] = useState(false);
+
+
+	const handleImageUpload = async (e) => {
+		const file = e.target.files[0];
+		if (!file) return;
+
+		setUploading(true);
+
+		try {
+			const storageRef = ref(storage, `products/${file.name}`);
+
+			await uploadBytes(storageRef, file);
+
+			const url = await getDownloadURL(storageRef);
+
+			setFormData((prev) => ({
+				...prev,
+				image: url,
+			}));
+		} catch (error) {
+			console.error(error);
+		} finally {
+			setUploading(false);
+		}
+	};
 
 	// AUTO-FILL FORM WHEN EDITING
 	useEffect(() => {
@@ -50,13 +79,26 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 	}, [editingProduct]);
 
 	// HANDLE INPUTS
-	const handleChange = (e) => {
-		const { name, value } = e.target;
 
-		setFormData((prev) => ({
-			...prev,
-			[name]: value,
-		}));
+	const handleChange = (e) => {
+		const { name, value, type, checked } = e.target;
+
+		setFormData((prev) => {
+			let newValue;
+
+			if (type === "checkbox") {
+				newValue = checked;
+			} else if (name === "price" || name === "stock" || name === "rating") {
+				newValue = value === "" ? "" : Number(value);
+			} else {
+				newValue = value;
+			}
+
+			return {
+				...prev,
+				[name]: newValue,
+			};
+		});
 	};
 
 	const resetForm = () => {
@@ -66,16 +108,18 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		if (uploading) return;
 
 		setErrors({});
 		setSuccessMessage("");
 		setLoading(true);
 
+
 		const productData = {
 			...formData,
-			price: formData.price === "" ? null : Number(formData.price),
-			stock: formData.stock === "" ? null : Number(formData.stock),
-			rating: formData.rating === "" ? null : Number(formData.rating),
+			price: formData.price === "" ? null : formData.price,
+			stock: formData.stock === "" ? null : formData.stock,
+			rating: formData.rating === "" ? null : formData.rating,
 		};
 
 		const { error } = productSchema.validate(productData, {
@@ -122,45 +166,57 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 
 	return (
 		<form onSubmit={handleSubmit} className="product-form">
-			<input
-				type="text"
-				name="name"
-				placeholder="Product name"
-				value={formData.name}
-				onChange={handleChange}
-				required
-			/>
-			{errors.name && <p className="error-message">{errors.name}</p>}
+			<div className="input-wrapper">
+				<input
+					type="text"
+					name="name"
+					placeholder="Product name"
+					value={formData.name}
+					onChange={handleChange}
+					required
+				/>
+				{errors.name && <p className="error-message">{errors.name}</p>}
+				<span className="required-star">*</span>
+			</div>
 
-			<input
-				type="number"
-				name="price"
-				placeholder="Price"
-				value={formData.price}
-				onChange={handleChange}
-				required
-			/>
-			{errors.price && <p className="error-message">{errors.price}</p>}
+			<div className="input-wrapper">
+				<input
+					type="number"
+					name="price"
+					placeholder="Price"
+					value={formData.price}
+					onChange={handleChange}
+					required
+				/>
+				{errors.price && (
+					<p className="error-message">{errors.price}</p>
+				)}
+				<span className="required-star">*</span>
+			</div>
 
-			<input
-				type="text"
-				name="category"
-				placeholder="Category"
-				value={formData.category}
-				onChange={handleChange}
-				required
-			/>
-			{errors.category && (
-				<p className="error-message">{errors.category}</p>
-			)}
+			<div className="input-wrapper">
+				<input
+					type="text"
+					name="category"
+					placeholder="Category"
+					value={formData.category}
+					onChange={handleChange}
+					required
+				/>
+				{errors.category && (
+					<p className="error-message">{errors.category}</p>
+				)}
+				<span className="required-star">*</span>
+			</div>
 
-			<input
+			<input type="file" accept="image/*" onChange={handleImageUpload} />
+			{/* <input
 				type="text"
 				name="image"
 				placeholder="Image URL"
 				value={formData.image}
 				onChange={handleChange}
-			/>
+			/> */}
 			{errors.image && <p className="error-message">{errors.image}</p>}
 
 			<textarea
@@ -204,7 +260,7 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 			/>
 			{errors.rating && <p className="error-message">{errors.rating}</p>}
 
-			<button type="submit">
+			<button type="submit" disabled={loading || uploading}>
 				{editingProduct ? "Update Product" : "Add Product"}
 			</button>
 
@@ -225,11 +281,3 @@ const ProductForm = ({ editingProduct, setEditingProduct }) => {
 
 export default ProductForm;
 
-
-// TODO:
-// const productData = {
-// 	...formData,
-// 	price: Number(formData.price),
-// 	stock: Number(formData.stock),
-// 	rating: Number(formData.rating),
-// };

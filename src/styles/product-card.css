@@ -96,14 +96,10 @@
 		rgba(0, 0, 0, 0.08) 0 8px 12px -4px;
 }
 
-
 .product-card:hover .product-card-image {
 	/* transform: scale(1.04); */
 	filter: brightness(1.06);
 }
-
-
-
 
 .product-card-preview {
 	display: flex;
@@ -127,9 +123,11 @@
 	}
 
 	.product-card-image-preview {
-		max-width: 150px;
-		width: 100%;
-		height: auto;
+		/* max-width: 150px;
+		width: 100%; */
+		/* height: auto; */
+		width: 150px;
+		height: 150px;
 		border-radius: 4px;
 		object-fit: cover;
 		margin-top: 0.2em;
@@ -137,8 +135,6 @@
 			transform 0.3s ease,
 			filter 0.3s ease;
 	}
-
-
 
 	.product-card-preview-price {
 		font-size: 0.85em;
